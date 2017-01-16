@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Diagnostic.LogUtility">
+    <Position X="1" Y="0.5" Width="9" />
+    <Members>
+      <Property Name="ActivityId" Hidden="true" />
+      <Field Name="calledShutdown" Hidden="true" />
+      <Field Name="DefaultEventId" Hidden="true" />
+      <Field Name="DefaultExceptionSeverity" Hidden="true" />
+      <Field Name="DefaultPriority" Hidden="true" />
+      <Field Name="DefaultSeverity" Hidden="true" />
+      <Field Name="emptyCategoriesList" Hidden="true" />
+      <Field Name="eventSourceName" Hidden="true" />
+      <Method Name="ExitOrUnloadEventHandler" Hidden="true" />
+      <Method Name="ShutdownTracing" Hidden="true" />
+      <Field Name="sourceName" Hidden="true" />
+      <Field Name="sync" Hidden="true" />
+      <Method Name="TryLogFailure" Hidden="true" />
+      <Method Name="UnhandledExceptionHandler" Hidden="true" />
+      <Method Name="UnsafeAddDomainEventHandlersForCleanup" Hidden="true" />
+      <Field Name="writer" Hidden="true" />
+      <Property Name="Writer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAAACIAAIEABkAAAAIAAAAABAAAAIAYFQQIBAEQAAA=</HashCode>
+      <FileName>LogUtility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

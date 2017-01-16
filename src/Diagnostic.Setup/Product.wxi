@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define ProductVersion = "1.0" ?>
+  <?define ProductName = "Diagnostic Library" ?>
+  <?define ProductCode = "*" ?>
+  <?define ProductUpgradeCode = "BDB1FCC3-79B3-4444-8EB7-2C0E9C4CBD7D" ?>
+  <?define ProductManufacturer = "ABC software" ?>
+</Include>

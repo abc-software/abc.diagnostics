@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Diagnostic.LogActivity">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Field Name="activity" Hidden="true" />
+      <Field Name="activityId" Hidden="true" />
+      <Field Name="async" Hidden="true" />
+      <Field Name="autoResume" Hidden="true" />
+      <Field Name="autoStop" Hidden="true" />
+      <Field Name="currentActivity" Hidden="true" />
+      <Field Name="diagnosticTrace" Hidden="true" />
+      <Field Name="disposed" Hidden="true" />
+      <Field Name="lastState" Hidden="true" />
+      <Method Name="LogActivity" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+      <Field Name="previousActivity" Hidden="true" />
+      <Field Name="stopCount" Hidden="true" />
+      <Method Name="TraceMilestone" Hidden="true" />
+      <Method Name="TraceTransfer" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Enum Name="Diagnostic.LogActivity.ActivityState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="Diagnostic.LogActivity.TransferActivity" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AA4CAAAkQSBQAAAAAACAAACEQBAHACAAYAQAAAgAQAA=</HashCode>
+      <FileName>LogActivity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

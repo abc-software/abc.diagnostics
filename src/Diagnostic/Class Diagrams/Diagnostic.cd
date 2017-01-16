@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Diagnostic.ExceptionUtility">
+    <Position X="5.75" Y="5.75" Width="5.75" />
+    <Members>
+      <Field Name="activityId" Hidden="true" />
+      <Field Name="diagnosticTrace" Hidden="true" />
+      <Field Name="useStaticActivityId" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEQgAABgQAAAAAAAAHAAAAAEABAAEAAAAAACAAgAAAA=</HashCode>
+      <FileName>ExceptionUtility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Diagnostic.LogActivity" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5.75" Width="5" />
+    <Members>
+      <Field Name="activity" Hidden="true" />
+      <Field Name="activityId" Hidden="true" />
+      <Field Name="async" Hidden="true" />
+      <Field Name="autoResume" Hidden="true" />
+      <Field Name="autoStop" Hidden="true" />
+      <Field Name="currentActivity" Hidden="true" />
+      <Field Name="diagnosticTrace" Hidden="true" />
+      <Field Name="disposed" Hidden="true" />
+      <Field Name="lastState" Hidden="true" />
+      <Method Name="LogActivity" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+      <Field Name="previousActivity" Hidden="true" />
+      <Property Name="PreviousActivity" Hidden="true" />
+      <Field Name="stopCount" Hidden="true" />
+      <Method Name="TraceMilestone" Hidden="true" />
+      <Method Name="TraceTransfer" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Enum Name="Diagnostic.LogActivity.ActivityState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="Diagnostic.LogActivity.TransferActivity" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>LogActivity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AA4CAAAkQSBQAAAAAACAAACEQBAHACAAYAQAAAgAQAA=</HashCode>
+      <FileName>LogActivity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Diagnostic.LogUtility">
+    <Position X="0.5" Y="0.5" Width="11" />
+    <Members>
+      <Property Name="ActivityId" Hidden="true" />
+      <Field Name="calledShutdown" Hidden="true" />
+      <Field Name="DefaultEventId" Hidden="true" />
+      <Field Name="DefaultExceptionSeverity" Hidden="true" />
+      <Field Name="DefaultPriority" Hidden="true" />
+      <Field Name="DefaultSeverity" Hidden="true" />
+      <Field Name="emptyCategoriesList" Hidden="true" />
+      <Field Name="eventSourceName" Hidden="true" />
+      <Method Name="ExitOrUnloadEventHandler" Hidden="true" />
+      <Field Name="GeneralCategory" Hidden="true" />
+      <Field Name="LogActivityCategory" Hidden="true" />
+      <Method Name="Reset" Hidden="true" />
+      <Method Name="ShutdownTracing" Hidden="true" />
+      <Field Name="sourceName" Hidden="true" />
+      <Property Name="SourceName" Hidden="true" />
+      <Field Name="sync" Hidden="true" />
+      <Method Name="TryLogFailure" Hidden="true" />
+      <Method Name="UnhandledExceptionHandler" Hidden="true" />
+      <Method Name="UnsafeAddDomainEventHandlersForCleanup" Hidden="true" />
+      <Method Name="WriteCore" Hidden="true" />
+      <Field Name="writer" Hidden="true" />
+      <Property Name="Writer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAAACIAAIEABkAAAAIAAAAABAAAAIAYFQQIBAEQAAA=</HashCode>
+      <FileName>LogUtility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

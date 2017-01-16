@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) ABC Software.  All rights reserved.
+-->
+<?include Product.wxi ?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="ReferenceAssemblies" Name="Reference Assemblies">
+          <Directory Id="Manufacter" Name="$(var.ProductManufacturer)">
+            <Directory Id="Product" Name="$(var.ProductName)">
+              <Directory Id="Version" Name="v$(var.ProductVersion)">
+                <Directory Id="INSTALLDIR" Name="."/>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="INSTALLDIR" FileSource ="$(var.Diagnostic.TargetDir)">
+      <Component Id="DiagnosticBinaries" Guid="{D000CB4F-0F4D-486d-8CD2-E08C8EC50157}">
+        <File Id="Diagnostic.dll" Name="Diagnostic.dll" KeyPath="yes" Assembly=".net" />
+        <File Id="Diagnostic.xml" Name="Diagnostic.xml" />
+      </Component>
+      <Component Id="DiagnosticRegistration" Guid="{0F0A84D2-485F-4635-94DD-EDE968A1723B}">
+        <RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductManufacturer)\$(var.ProductName) v$(var.ProductVersion)" Value="[INSTALLDIR]" Type="string" KeyPath ="yes" />
+        <RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727\AssemblyFoldersEx\$(var.ProductName) v$(var.ProductVersion)" Value="[INSTALLDIR]" Type="string" />  
+      </Component>
+      <!--<Component Id="AuditLogBinaries" Guid="{016EA479-692D-4f01-8BA5-37DE44C953B7}">
+        
+      </Component>-->
+      <Component Id="History.md" Guid="{BA905C48-D712-4765-91AE-F387A5092042}">
+        <File Id="History.md" Name="History.txt" Source="$(var.SolutionDir)/History.md" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+  <Fragment>
+    <ComponentGroup Id="Binaries">
+      <ComponentRef Id="DiagnosticRegistration" />
+      <ComponentRef Id="DiagnosticBinaries" />
+      <!--<ComponentRef Id="AuditLogBinaries" />-->
+    </ComponentGroup>
+    <ComponentGroup Id="Content">
+      <ComponentRef Id="History.md" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == 'Any CPU' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Abc.Diagnostics</RootNamespace>
+    <AssemblyName>Abc.Diagnostics</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>%24/Abc.Diagnostic/Dev/src/Diagnostic</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://tfs:8080/tfs/defaultcollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\eves.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <BaseIntermediateOutputPath>obj\45\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug.45\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug.45\Abc.Diagnostics.xml</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.45.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release.45\</OutputPath>
+    <DefineConstants>TRACE;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release.45\Abc.Diagnostics.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\Rule Sets\MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activity.cs" />
+    <None Include="Abc.Diagnostics.45.ruleset" />
+    <None Include="Class Diagrams\Diagnostic.cd" />
+    <None Include="Class Diagrams\LogActivity.cd" />
+    <None Include="Configuration\GroupFilterEntry.cs" />
+    <None Include="Configuration\NotificationFilterAssembler.cs" />
+    <None Include="Configuration\NotificationFilterData.cs" />
+    <Compile Include="Configuration\ConfigSR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigSR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\ConfigurationSectionLoader.cs" />
+    <Compile Include="Configuration\DiagnosticInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Configuration\DiagnosticSettings.cs" />
+    <Compile Include="EntrLib60LogWriter.cs" />
+    <Compile Include="DiagnosticTools.cs" />
+    <Compile Include="EntrLib31LogWriter.cs" />
+    <Compile Include="EntrLib41LogWriter.cs" />
+    <Compile Include="EntrLib50LogWriter.cs" />
+    <Compile Include="EntrLibLogWriter.cs" />
+    <Compile Include="EntrLib40LogWriter.cs" />
+    <Compile Include="DefaultLogWriter.cs" />
+    <Compile Include="ExtraInformation\DebugInformationProvider.cs" />
+    <Compile Include="ExtraInformation\IStackTraceUtility.cs" />
+    <Compile Include="ExtraInformation\IExtraInformationProvider.cs" />
+    <Compile Include="ExtraInformation\ManagedSecurityContextInformationProvider.cs" />
+    <None Include="Configuration\ConfigSR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConfigSR.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ExtraInformation\UnmanagedSecurityContextInformationProvider.cs" />
+    <None Include="Filters\NotificationFilter.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ILogWriter.cs" />
+    <Compile Include="ILogSource.cs" />
+    <Compile Include="ILogWriterCustomAttributes.cs" />
+    <Compile Include="LogActivity.cs" />
+    <Compile Include="LogUtility.cs" />
+    <Compile Include="ExceptionUtility.cs" />
+    <Compile Include="FatalException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraceUtility.cs" />
+    <None Include="lgpl-3.licenseheader" />
+    <None Include="SR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\eves.snk" />
+    <None Include="Class Diagrams\ExceptionUtility.cd" />
+    <None Include="Class Diagrams\LogUtility.cd" />
+    <None Include="Class Diagrams\TraceUtility.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\ConfigSR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <ItemGroup>
+    <SourceFiles Include="$(TargetPath)">
+      <InProject>false</InProject>
+    </SourceFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Target Name="AfterBuild">
+    <Copy SourceFiles="@(SourceFiles)" DestinationFolder="$(ProjectDir)..\..\Reference Assemblies" />
+  </Target>
+</Project>

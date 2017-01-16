@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Diagnostic.TraceUtility">
+    <Position X="0.5" Y="0.5" Width="3.5" />
+    <Members>
+      <Method Name="~TraceUtility" Hidden="true" />
+      <Field Name="DefaultEventId" Hidden="true" />
+      <Field Name="DefaultPriority" Hidden="true" />
+      <Field Name="diagnosticTrace" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="GetActivityId" Hidden="true" />
+      <Method Name="GetExecutingMethodName" Hidden="true" />
+      <Method Name="GetSecondsElapsed" Hidden="true" />
+      <Method Name="Initialize" Hidden="true" />
+      <Method Name="PeekLogicalOperationStack" Hidden="true" />
+      <Method Name="SetActivityId" Hidden="true" />
+      <Method Name="StartLogicalOperation" Hidden="true" />
+      <Method Name="StopLogicalOperation" Hidden="true" />
+      <Field Name="stopwatch" Hidden="true" />
+      <Field Name="tracerDisposed" Hidden="true" />
+      <Field Name="tracingAvailable" Hidden="true" />
+      <Field Name="tracingAvailableInitialized" Hidden="true" />
+      <Field Name="tracingStartTicks" Hidden="true" />
+      <Method Name="WriteTraceEndMessage" Hidden="true" />
+      <Method Name="WriteTraceMessage" Hidden="true" />
+      <Method Name="WriteTraceStartMessage" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAoCBAEQCAQAUgCgAAAAAAAIJAEMAABAAAARAAIAAA=</HashCode>
+      <FileName>TraceUtility.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

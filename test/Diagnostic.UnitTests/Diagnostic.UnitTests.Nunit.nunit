@@ -1,0 +1,9 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" appbase="bin\DebugNunit" configfile="Diagnostic.UnitTests.dll.config">
+    <assembly path="Diagnostic.UnitTests.dll" />
+  </Config>
+  <Config name="Release" appbase="bin\ReleaseNunit" configfile="Diagnostic.UnitTests.dll.config">
+    <assembly path="Diagnostic.UnitTests.dll" />
+  </Config>
+</NUnitProject>
