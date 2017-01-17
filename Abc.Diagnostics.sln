@@ -122,37 +122,7 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs:8080/tfs/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = src\\Diagnostic\\Diagnostic.csproj
-		SccProjectName1 = src/Diagnostic
-		SccLocalPath1 = src\\Diagnostic
-		SccProjectUniqueName2 = test\\Diagnostic.UnitTests\\Diagnostic.UnitTests.csproj
-		SccProjectName2 = test/Diagnostic.UnitTests
-		SccLocalPath2 = test\\Diagnostic.UnitTests
-		SccProjectUniqueName3 = test\\Diagnostic.UnitTests\\Diagnostic.UnitTests.Nunit.csproj
-		SccProjectName3 = test/Diagnostic.UnitTests
-		SccLocalPath3 = test\\Diagnostic.UnitTests
-		SccProjectUniqueName4 = src\\Diagnostic.Setup\\Diagnostic.Setup.wixproj
-		SccProjectName4 = src/Diagnostic.Setup
-		SccLocalPath4 = src\\Diagnostic.Setup
-		SccProjectUniqueName5 = src\\Diagnostic\\Abc.Diagnostics.45.csproj
-		SccProjectName5 = src/Diagnostic
-		SccLocalPath5 = src\\Diagnostic
-		SccProjectUniqueName6 = src\\Diagnostic.NuGet\\Diagnostic.NuGet.nuproj
-		SccProjectName6 = src/Diagnostic.NuGet
-		SccLocalPath6 = src\\Diagnostic.NuGet
-		SccProjectUniqueName7 = src\\Diagnostic\\Abc.Diagnostics.16.csproj
-		SccProjectName7 = src/Diagnostic
-		SccLocalPath7 = src\\Diagnostic
-		SccProjectUniqueName8 = samples\\Diagnostic.Lab\\Diagnostic.Lab.csproj
-		SccProjectName8 = samples/Diagnostic.Lab
-		SccLocalPath8 = samples\\Diagnostic.Lab
-	EndGlobalSection
+	EndGlobalSection	
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Diagnostic.vsmdi
 	EndGlobalSection
