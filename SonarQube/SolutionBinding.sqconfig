@@ -3,8 +3,8 @@
   "ProjectKey": "Abc.Diagnostics:DEV",
   "Profiles": {
     "CSharp": {
-      "ProfileKey": "cs-full-c-73696",
-      "ProfileTimestamp": "2016-08-30T16:36:41+03:00"
+      "ProfileKey": "cs-abc-c-52518",
+      "ProfileTimestamp": "2016-12-02T15:24:28+02:00"
     }
   }
 }
