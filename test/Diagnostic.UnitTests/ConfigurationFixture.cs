@@ -67,7 +67,9 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual(typeName, Configuration.DiagnosticSettings.Current.TypeName);
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
+#if NUNIT
             Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+#endif
         }
 
         /// <summary>
@@ -79,7 +81,9 @@ namespace Diagnostic.UnitTests {
             ChangeConfigAttribute("type", typeName);
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
+#if NUNIT
             Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+#endif
         }
 
         /// <summary>
@@ -91,7 +95,9 @@ namespace Diagnostic.UnitTests {
             ChangeConfigAttribute("type", typeName);
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
+#if NUNIT
             Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+#endif
         }
 
         [TestMethod()]
@@ -121,7 +127,9 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual(initializeData, Configuration.DiagnosticSettings.Current.InitData);
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
+#if NUNIT
             Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+#endif
         }
 
         /// <summary>
