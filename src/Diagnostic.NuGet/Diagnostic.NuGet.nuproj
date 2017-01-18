@@ -21,12 +21,6 @@
     <Compile Include="Diagnostic.NuGet.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Diagnostic\Abc.Diagnostics.16.csproj">
-      <Name>Abc.Diagnostics.16</Name>
-      <Project>{949fa0fe-aa09-4ee8-a3b3-a4b3694d7376}</Project>
-      <Private>True</Private>
-      <NuBuildTargetFolder>lib\netstandard1.6</NuBuildTargetFolder>
-    </ProjectReference>
     <ProjectReference Include="..\Diagnostic\Abc.Diagnostics.45.csproj">
       <Name>Abc.Diagnostics.45</Name>
       <Project>{3b48a3a9-d8bf-4f7d-9d95-7f98c9db8530}</Project>
