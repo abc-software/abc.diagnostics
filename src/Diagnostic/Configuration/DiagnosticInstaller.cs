@@ -35,7 +35,7 @@ namespace Abc.Diagnostics.Configuration {
     [RunInstaller(true)]
     public class DiagnosticInstaller : Installer {
         private static readonly string EventSourceName = typeof(LogUtility).Assembly.GetName().Name;
-        private EventLogInstaller eventLogInstaller;
+        private readonly EventLogInstaller eventLogInstaller;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DiagnosticInstaller"/> class.

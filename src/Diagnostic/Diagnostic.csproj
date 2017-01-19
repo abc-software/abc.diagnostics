@@ -105,7 +105,6 @@
     <Compile Include="ExtraInformation\IStackTraceUtility.cs" />
     <Compile Include="ExtraInformation\IExtraInformationProvider.cs" />
     <Compile Include="ExtraInformation\ManagedSecurityContextInformationProvider.cs" />
-    <None Include="Diagnostic.Release.ruleset" />
     <None Include="Diagnostic.ruleset">
       <SubType>Designer</SubType>
     </None>

@@ -39,7 +39,7 @@ namespace Abc.Diagnostics {
         
         private bool disposed;
         private bool autoStop;
-        private bool async;
+        private bool asynchronous;
         private int stopCount;
         private bool autoResume;
         private ActivityState lastState;
@@ -138,7 +138,7 @@ namespace Abc.Diagnostics {
         public static LogActivity CreateAsyncActivity() {
             LogActivity activity = CreateActivity(true);
             if (activity != null) {
-                activity.async = true;
+                activity.asynchronous = true;
             }
 
             return activity;
@@ -176,6 +176,7 @@ namespace Abc.Diagnostics {
         /// <param name="activityId">The activity id.</param>
         /// <param name="suspendCurrent">if set to <c>true</c> then suspend current log activity.</param>
         /// <returns>The <see cref="LogActivity"/>.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope", Justification = "Must be disposed in the parent class.")]
         public static LogActivity CreateBoundedActivity(Guid activityId, bool suspendCurrent) {
             LogActivity current = Current;
             LogActivity activity = CreateActivity(activityId, true);
@@ -277,11 +278,11 @@ namespace Abc.Diagnostics {
         /// </summary>
         public void Stop() {
             int num = 0;
-            if (this.async) {
+            if (this.asynchronous) {
                 num = System.Threading.Interlocked.Increment(ref this.stopCount);
             }
 
-            if ((this.lastState != ActivityState.Stop) && (!this.async || (this.async && (num >= 2)))) {
+            if ((this.lastState != ActivityState.Stop) && (!this.asynchronous || (this.asynchronous && (num >= 2)))) {
                 this.lastState = ActivityState.Stop;
                 this.TraceMilestone(TraceEventType.Stop);
             }
@@ -315,9 +316,9 @@ namespace Abc.Diagnostics {
         }
 
         private static void TraceTransfer(Guid newId) {
-            Guid activityId = LogUtility.ActivityId;
-            if (newId != activityId) {
-                LogUtility.Writer.Write(null, new string[] { LogUtility.GeneralCategory, LogUtility.LogActivityCategory }, LogUtility.DefaultPriority, LogUtility.DefaultEventId, TraceEventType.Transfer, LogUtility.LogSourceName, null, null, activityId, newId);
+            Guid currentActivityId = LogUtility.ActivityId;
+            if (newId != currentActivityId) {
+                LogUtility.Writer.Write(null, new string[] { LogUtility.GeneralCategory, LogUtility.LogActivityCategory }, LogUtility.DefaultPriority, LogUtility.DefaultEventId, TraceEventType.Transfer, LogUtility.LogSourceName, null, null, currentActivityId, newId);
             }
         }
 

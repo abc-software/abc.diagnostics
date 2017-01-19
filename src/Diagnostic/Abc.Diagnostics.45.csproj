@@ -51,8 +51,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug.45\Abc.Diagnostics.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.45.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -77,8 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
-    <None Include="Abc.Diagnostics.45.Release.ruleset" />
-    <None Include="Abc.Diagnostics.45.ruleset" />
+    <None Include="Abc.Diagnostics.45.ruleset">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Class Diagrams\Diagnostic.cd" />
     <None Include="Class Diagrams\LogActivity.cd" />
     <None Include="Configuration\GroupFilterEntry.cs" />

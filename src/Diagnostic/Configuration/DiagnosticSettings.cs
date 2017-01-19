@@ -41,7 +41,7 @@ namespace Abc.Diagnostics.Configuration {
         private readonly ConfigurationProperty propTypeName = new ConfigurationProperty("type", typeof(string), string.Empty, ConfigurationPropertyOptions.IsRequired);
         private readonly ConfigurationProperty propInitData = new ConfigurationProperty("initializeData", typeof(string), string.Empty, ConfigurationPropertyOptions.None);
 
-        private ConfigurationPropertyCollection properties = new ConfigurationPropertyCollection();
+        private readonly ConfigurationPropertyCollection properties = new ConfigurationPropertyCollection();
         private Dictionary<string, string> attributes;
 
         /// <summary>

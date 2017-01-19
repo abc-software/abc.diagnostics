@@ -34,7 +34,6 @@ namespace Abc.Diagnostics {
     /// </summary>
     public class TraceUtility : IDisposable {
         private Stopwatch stopwatch;
-        private long tracingStartTicks;
 
         private bool tracingAvailable;
         private bool tracingAvailableInitialized;
@@ -87,9 +86,14 @@ namespace Abc.Diagnostics {
                 if (!this.tracingAvailableInitialized) {
                     this.tracingAvailable = false;
                     try {
+#if NET20 || NET35 
                         this.tracingAvailable = SecurityManager.IsGranted(new SecurityPermission(SecurityPermissionFlag.UnmanagedCode));
+#else
+                        this.tracingAvailable = new PermissionSet(PermissionState.None).IsSubsetOf(AppDomain.CurrentDomain.PermissionSet);
+#endif
                     }
                     catch (SecurityException) {
+                        // Nothing to do
                     }
 
                     this.tracingAvailableInitialized = true;
@@ -181,8 +185,8 @@ namespace Abc.Diagnostics {
             return LogUtility.ActivityId;
         }
 
-        private static Guid SetActivityId(Guid activityId) {
-            return LogUtility.ActivityId = activityId;
+        private static void SetActivityId(Guid activityId) {
+            LogUtility.ActivityId = activityId;
         }
 
         private static void StartLogicalOperation(string operation) {
@@ -200,12 +204,12 @@ namespace Abc.Diagnostics {
         private void WriteTraceStartMessage() {
             if (this.IsTracingEnabled) {
                 this.stopwatch = Stopwatch.StartNew();
-                this.tracingStartTicks = Stopwatch.GetTimestamp();
 
+                long tracingStartTicks = Stopwatch.GetTimestamp();
                 string methodName = this.GetExecutingMethodName();
                 Guid activityId = TraceUtility.GetActivityId(); 
                 string message = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.TraceStartMessage, activityId, methodName, this.tracingStartTicks);
+                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.TraceStartMessage, activityId, methodName, tracingStartTicks);
 
                 this.WriteTraceMessage(message, TraceEventType.Start, activityId);
             }

@@ -49,6 +49,7 @@ namespace Abc.Diagnostics {
         /// Initializes a new instance of the <see cref="ExceptionUtility"/> class with specified diagnostic trace.
         /// </summary>
         /// <param name="diagnosticTrace">The diagnostic trace.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "diagnosticTrace", Justification = "For backward compatibility")]
         [Obsolete("Deprecated")]
         public ExceptionUtility(LogUtility diagnosticTrace) {
         }
