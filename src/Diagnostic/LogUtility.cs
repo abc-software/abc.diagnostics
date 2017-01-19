@@ -96,14 +96,14 @@ namespace Abc.Diagnostics {
 #if NET20 || NET30 || NET35 || NET40
             [SecurityTreatAsSafe]
 #else
-            [SecuritySafeCritical]
+            [SecurityCritical]
 #endif
             get { return Trace.CorrelationManager.ActivityId; }
 
 #if NET20 || NET30 || NET35 || NET40
             [SecurityTreatAsSafe]
 #else
-            [SecuritySafeCritical]
+            [SecurityCritical]
 #endif
             set { Trace.CorrelationManager.ActivityId = value; }
         }

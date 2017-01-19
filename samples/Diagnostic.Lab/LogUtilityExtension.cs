@@ -6,6 +6,7 @@
 
 namespace DiagnosicLab {
     using Diagnostic;
+    using System;
 
     /// <summary>
     /// Log Utility Extension.
@@ -20,6 +21,10 @@ namespace DiagnosicLab {
         /// <param name="message">The message.</param>
         /// <param name="priority">The priority.</param>
         public static void Write(this LogUtility logUtility, string message, int priority) {
+            if (logUtility == null) {
+                throw new ArgumentNullException("logUtility");
+            }
+
             logUtility.Write(message, Category, priority); 
         }
     }
