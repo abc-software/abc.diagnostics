@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using Diagnostic;
+using DiagnosicLab.Properties;
 
 namespace DiagnosicLab {
     /// <summary>
@@ -21,18 +22,18 @@ namespace DiagnosicLab {
         /// Simple write log (By default "Trace" Category)
         /// </summary>
         private void button1_Click(object sender, EventArgs e) {
-            DiagnosticTools.LogUtil.Write("Simple Message");
+            DiagnosticTools.LogUtil.Write(Resources.SimpleMessage);
         }
 
         /// <summary>
         /// Write log with parameters 
         /// </summary>
         private void button2_Click(object sender, EventArgs e) {
-            DiagnosticTools.LogUtil.Write("Simple Message with Parameters", Category, -1, 100, TraceEventType.Information);
-            DiagnosticTools.LogUtil.Write("Exception to Log", Category, -1, 100, TraceEventType.Error, new ArgumentNullException("sender"));
+            DiagnosticTools.LogUtil.Write(Resources.SimpleMessageWithParameters, Category, -1, 100, TraceEventType.Information);
+            DiagnosticTools.LogUtil.Write(Resources.ExceptionToLog, Category, -1, 100, TraceEventType.Error, new ArgumentNullException("sender"));
 
             // Extension Function.
-            DiagnosticTools.LogUtil.Write("message", -1);
+            DiagnosticTools.LogUtil.Write(Resources.Message, -1);
         }
 
         /// <summary>
@@ -43,6 +44,7 @@ namespace DiagnosicLab {
                 DiagnosticTools.ExceptionUtil.ThrowHelperArgumentNull("sender");
             }
             catch (ArgumentNullException) {
+                // nothing do
             }
         }
 
@@ -53,7 +55,7 @@ namespace DiagnosicLab {
             // Create traser ("ButtonClick" Category)
             using (new TraceUtility("ButtonClick")) {
                 // Log Message
-                DiagnosticTools.LogUtil.Write("Button4", "ButtonClick");
+                DiagnosticTools.LogUtil.Write(Resources.Button4_Clicked, "ButtonClick");
 
                 Execute();
             }
@@ -70,12 +72,14 @@ namespace DiagnosicLab {
         /// Use activity monitoring (By default "General" Category)
         /// </summary>
         private void button5_Click(object sender, EventArgs e) {
+            const string MyActivity = "MyActivity";
+
             // Create and start activity
             using (LogActivity my = LogActivity.CreateActivity()) {
-                my.Start("My Activity", "MyActivity");
+                my.Start("My Activity", MyActivity);
 
                 // Log Message with activityId
-                DiagnosticTools.LogUtil.Write("My Activity Message", Category, -1, 100, TraceEventType.Information, my.Id);
+                DiagnosticTools.LogUtil.Write(Resources.MyActivityMessage, Category, -1, 100, TraceEventType.Information, my.Id);
 
                 // Generate exception with activityId
                 ExceptionUtility.UseActivityId(my.Id);
@@ -93,24 +97,27 @@ namespace DiagnosicLab {
         /// Use bounded activity monitoring (By default "Activity" Category)
         /// </summary>
         private void button6_Click(object sender, EventArgs e) {
+            const string RootActivity = "RootActivity";
+            const string NestedActivity = "NestedActivity";
+
             // Create and start boundary activity
             LogActivity la = LogActivity.CreateBoundedActivity();
             try {
-                la.Start("Root activity", "RootActivity");
+                la.Start("Root activity", RootActivity);
 
                 // Log Message with activityId
-                DiagnosticTools.LogUtil.Write("Root Message");
+                DiagnosticTools.LogUtil.Write(Resources.RootMessage);
 
                 // Create and start boundary activity
                 using (LogActivity ba = LogActivity.CreateBoundedActivity(true)) {
-                    ba.Start("Nested activity", "Nested Activity");
+                    ba.Start("Nested activity", NestedActivity);
 
                     // Log Message with activityId
-                    DiagnosticTools.LogUtil.Write("NestedMessage");
+                    DiagnosticTools.LogUtil.Write(Resources.NestedMessage);
 
                     // Generate exception with activityId
                     try {
-                        DiagnosticTools.ExceptionUtil.ThrowHelperArgumentNull("param");
+                        DiagnosticTools.ExceptionUtil.ThrowHelperArgumentNull("sender");
                     }
                     catch (ArgumentNullException) {
                     }

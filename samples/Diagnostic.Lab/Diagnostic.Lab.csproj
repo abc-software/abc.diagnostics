@@ -45,8 +45,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>true</UseVSHostingProcess>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Diagnostic.Lab.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -89,13 +89,22 @@
     <Compile Include="LogUtilityExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DignosticLab.resx">
       <DependentUpon>DignosticLab.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Diagnostic.Lab-1.ruleset" />
-    <None Include="Diagnostic.Lab.Release.ruleset" />
-    <None Include="Diagnostic.Lab.ruleset" />
+    <None Include="Diagnostic.Lab.ruleset">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Log.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

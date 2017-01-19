@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="SonarQube - Abc.Diagnostics [DEV] ABC C#" ToolsVersion="14.0">
-  <Include Path="..\..\sonarqube\abc.diagnostics_devcsharp.ruleset" Action="Default" />
-</RuleSet>

@@ -51,7 +51,8 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug.45\Abc.Diagnostics.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>Abc.Diagnostics.45.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
