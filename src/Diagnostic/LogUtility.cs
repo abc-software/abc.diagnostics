@@ -25,6 +25,7 @@ namespace Abc.Diagnostics {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
     using System.Security;
 
     /// <summary>
@@ -79,7 +80,7 @@ namespace Abc.Diagnostics {
         /// Gets a value indicating whether logging enabled.
         /// </summary>
         /// <value><c>true</c> if logging enabled; otherwise, <c>false</c>.</value>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Is a class meber")]
+        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Is a class meber")]
         public bool LoggingEnabled {
             get { return LogUtility.Writer.IsLoggingEnabled; } 
         }
@@ -92,7 +93,6 @@ namespace Abc.Diagnostics {
         /// The activity id.
         /// </value>
         internal static Guid ActivityId {
-            [SecurityCritical]
 #if NET20 || NET30 || NET35 || NET40
             [SecurityTreatAsSafe]
 #else
@@ -100,7 +100,6 @@ namespace Abc.Diagnostics {
 #endif
             get { return Trace.CorrelationManager.ActivityId; }
 
-            [SecurityCritical]
 #if NET20 || NET30 || NET35 || NET40
             [SecurityTreatAsSafe]
 #else
@@ -353,7 +352,7 @@ namespace Abc.Diagnostics {
         }
 #endregion
 
-#region Write with Properties
+        #region Write with Properties
         /// <summary>
         /// Write a new log entry and a dictionary of extended properties.
         /// </summary>
@@ -437,9 +436,9 @@ namespace Abc.Diagnostics {
         public void Write(string message, ICollection<string> categories, int priority, int eventId, TraceEventType severity, IDictionary<string, object> properties, Guid activityId) {
             this.WriteCore(message, categories, priority, eventId, severity, properties, activityId);
         }
-#endregion
+        #endregion
 
-#region Write with Exception
+        #region Write with Exception
         /// <summary>
         /// Write a new log entry with a specific category, priority, event Id, severity
         /// title and dictionary of extended properties.
@@ -516,7 +515,7 @@ namespace Abc.Diagnostics {
         public void Write(string message, string category, int priority, int eventId, TraceEventType severity, Exception exception, Guid activityId) {
             this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, exception, activityId);
         }
-#endregion
+        #endregion
 
         /// <summary>
         /// Public for testing purposes.
@@ -602,6 +601,7 @@ namespace Abc.Diagnostics {
 #if !NETSTANDARD
         [SecurityCritical]
         [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Assert, UnmanagedCode = true)]
+        [SuppressMessage("Microsoft.Security", "CA2106", Justification = "The method add handlers to cleanup but doesn't directly expose information nor takes parameters or allow for modification of the critical information.")]
 #endif
         private void UnsafeAddDomainEventHandlersForCleanup() {
             try {

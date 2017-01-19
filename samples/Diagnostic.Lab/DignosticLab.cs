@@ -29,7 +29,7 @@ namespace DiagnosicLab {
         /// </summary>
         private void button2_Click(object sender, EventArgs e) {
             DiagnosticTools.LogUtil.Write("Simple Message with Parameters", Category, -1, 100, TraceEventType.Information);
-            DiagnosticTools.LogUtil.Write("Exception to Log", Category, -1, 100, TraceEventType.Error, new ArgumentNullException());
+            DiagnosticTools.LogUtil.Write("Exception to Log", Category, -1, 100, TraceEventType.Error, new ArgumentNullException("sender"));
 
             // Extension Function.
             DiagnosticTools.LogUtil.Write("message", -1);
@@ -95,28 +95,32 @@ namespace DiagnosicLab {
         private void button6_Click(object sender, EventArgs e) {
             // Create and start boundary activity
             LogActivity la = LogActivity.CreateBoundedActivity();
-            la.Start("Root activity", "RootActivity");
-
-            // Log Message with activityId
-            DiagnosticTools.LogUtil.Write("RootMessage");
-
-            // Create and start boundary activity
-            using (LogActivity ba = LogActivity.CreateBoundedActivity(true)) {
-                ba.Start("Nested activity", "NestedActivity");
+            try {
+                la.Start("Root activity", "RootActivity");
 
                 // Log Message with activityId
-                DiagnosticTools.LogUtil.Write("NestedMessage");
+                DiagnosticTools.LogUtil.Write("Root Message");
 
-                // Generate exception with activityId
-                try {
-                    DiagnosticTools.ExceptionUtil.ThrowHelperArgumentNull("param");
+                // Create and start boundary activity
+                using (LogActivity ba = LogActivity.CreateBoundedActivity(true)) {
+                    ba.Start("Nested activity", "Nested Activity");
+
+                    // Log Message with activityId
+                    DiagnosticTools.LogUtil.Write("NestedMessage");
+
+                    // Generate exception with activityId
+                    try {
+                        DiagnosticTools.ExceptionUtil.ThrowHelperArgumentNull("param");
+                    }
+                    catch (ArgumentNullException) {
+                    }
                 }
-                catch (ArgumentNullException) {
-                }
+
             }
-
-            // Stop and Dispose boundary activity
-            la.Dispose();
+            finally {
+                // Stop and Dispose boundary activity
+                la.Dispose();
+            }
         }
     }
 }

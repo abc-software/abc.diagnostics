@@ -33,7 +33,7 @@ namespace Abc.Diagnostics {
         [ThreadStatic]
         private static LogActivity currentActivity;
         
-        private TransferActivity activity;
+        private TransferActivity localActivity;
         private readonly Guid activityId;
         private readonly LogActivity previousActivity;
         
@@ -186,7 +186,7 @@ namespace Abc.Diagnostics {
                     activity2.SetPreviousActivity(current); 
                 }
 
-                activity.activity = activity2;
+                activity.localActivity = activity2;
                 Current = activity;
 
                 if (suspendCurrent) {
@@ -294,8 +294,8 @@ namespace Abc.Diagnostics {
             if (!this.disposed) {
                 this.disposed = true;
                 try {
-                    if (this.activity != null) {
-                        this.activity.Dispose();
+                    if (this.localActivity != null) {
+                        this.localActivity.Dispose();
                     }
 
                     if (this.autoStop) {

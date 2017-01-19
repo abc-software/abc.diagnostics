@@ -232,6 +232,10 @@ namespace Abc.Diagnostics {
             /// </summary>
             /// <param name="dict">Dictionary containing extra information used to initialize the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.ExtraInformation.IExtraInformationProvider"></see> instance</param>
             public void PopulateDictionary(IDictionary<string, object> dict) {
+                if (dict == null) {
+                    throw new ArgumentNullException("dict");
+                }
+
                 dict.Add(Abc.Diagnostics.SR.ExtraInformation_ExceptionType, this.exception.GetType().AssemblyQualifiedName);
                 dict.Add(Abc.Diagnostics.SR.ExtraInformation_ExceptionMessage, this.exception.Message);
                 dict.Add(Abc.Diagnostics.SR.ExtraInformation_ExceptionString, this.exception.ToString());

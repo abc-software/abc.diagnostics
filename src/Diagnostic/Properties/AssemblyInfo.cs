@@ -53,5 +53,5 @@ using System.Runtime.InteropServices;
 #endif
 
 [assembly: CLSCompliant(true)] 
-[assembly: NeutralResourcesLanguage("en-US")]
+[assembly: NeutralResourcesLanguage("en")]
 [assembly: InternalsVisibleTo("Diagnostic.UnitTests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100d1e3420a315f9780509968c65aecc1f0aeb868777c84afff7d2b32135396f624dc8715ef92bdaf600352293ec5b83564b154847f03edac1d7ff7c7e00523353da0cca9e2a21c36f2e037ae08dd6ffe7e9908d95db6639cf788e2e15a0ae76ada7fa296714b3621375feeedd0acc8f626edcf2a684f9ecbe4488ce1a4a32f758e")]

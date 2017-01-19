@@ -106,6 +106,10 @@ namespace Abc.Diagnostics.ExtraInformation {
             /// <param name="stackTrace">The source to represent textually.</param>
             /// <returns>The textual representation of the stack.</returns>
             public string GetStackTraceWithSourceInfo(StackTrace stackTrace) {
+                if (stackTrace == null) {
+                    throw new ArgumentNullException("stackTrace");
+                }
+
                 string aatString = Abc.Diagnostics.SR.ExtraInformation_SchemaHelperAtString;
                 string unknownTypeString = Abc.Diagnostics.SR.ExtraInformation_SchemaHelperUnknownType;
                 string newLine = Environment.NewLine;
@@ -123,7 +127,7 @@ namespace Abc.Diagnostics.ExtraInformation {
                         string nameSpace = t.Namespace;
                         if (nameSpace != null) {
                             stringBuilder.Append(nameSpace);
-                            if (stringBuilder != null) {
+                            if (stringBuilder.Length > 0) {
                                 stringBuilder.Append(".");
                             }
                         }
