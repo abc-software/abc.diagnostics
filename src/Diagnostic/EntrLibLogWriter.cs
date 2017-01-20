@@ -188,6 +188,7 @@ namespace Abc.Diagnostics {
         /// Initializes the instance of the <see cref="EntrLibLogWriter"/>.
         /// </summary>
         /// <param name="loggingAssembly">The logging assembly.</param>
+        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "LogWriterFactory", Justification = "A class name")]
         protected void Initialize(Assembly loggingAssembly) {
             this.loggingAssembly = loggingAssembly;
 
@@ -201,7 +202,7 @@ namespace Abc.Diagnostics {
                 object factory = Activator.CreateInstance(factoryType);
                 MethodInfo createMethod = factoryType.GetMethod("Create", new Type[0]); // Get method without paramters
                 if (createMethod == null) {
-                    throw new InvalidOperationException("Method Create must be present in 'LogWriterFactory'.");
+                    throw new InvalidOperationException("Method Create must be present in a class 'LogWriterFactory'.");
                 }
 
                 this.logWriter = createMethod.Invoke(factory, new object[0]);
