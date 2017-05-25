@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == 'Any CPU' ">AnyCPU</Platform>
+    <ProjectGuid>{362094D2-4A04-4019-A0CF-C69B09CE4042}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Abc.Diagnostics</RootNamespace>
+    <AssemblyName>Abc.Diagnostics</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SccProjectName>%24/Abc.Diagnostic/Dev/src/Diagnostic</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://tfs:8080/tfs/defaultcollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\eves.snk</AssemblyOriginatorKeyFile>
+    <BaseIntermediateOutputPath>obj\netstandart13\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\netstandart13\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_3;NETSTANDARD</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\netstandart13\Abc.Diagnostics.xml</DocumentationFile>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.13.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\netstandart13\</OutputPath>
+    <DefineConstants>TRACE;NETSTANDARD1_3;NETSTANDARD</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\netstandart13\Abc.Diagnostics.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="Abc.Diagnostics.13.project.json" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IExceptionUtility.cs" />
+    <Compile Include="IExceptionUtiltyExtension.cs" />
+    <Compile Include="ILogUtility.cs" />
+    <Compile Include="ILogUtilityExtension.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.tt</DependentUpon>
+    </Compile>
+    <None Include="Abc.Diagnostics.13.ruleset" />
+    <None Include="Activity.cs" />
+    <None Include="Abc.Diagnostics.45.ruleset" />
+    <None Include="Class Diagrams\Diagnostic.cd" />
+    <None Include="Class Diagrams\LogActivity.cd" />
+    <Compile Include="DefaultLogWriter.cs" />
+    <Compile Include="DiagnosticTools.cs" />
+    <None Include="ExtraInformation\DebugInformationProvider.cs" />
+    <Compile Include="ExtraInformation\IStackTraceUtility.cs" />
+    <Compile Include="ExtraInformation\IExtraInformationProvider.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ILogWriter.cs" />
+    <Compile Include="ILogSource.cs" />
+    <Compile Include="ILogWriterCustomAttributes.cs" />
+    <None Include="LogActivity.cs" />
+    <Compile Include="LogUtility.cs" />
+    <Compile Include="ExceptionUtility.cs" />
+    <Compile Include="FatalException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="SR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\eves.snk" />
+    <None Include="Class Diagrams\ExceptionUtility.cd" />
+    <None Include="Class Diagrams\LogUtility.cd" />
+    <None Include="Class Diagrams\TraceUtility.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <PropertyGroup>
+    <NuGetTargetMoniker>.NETStandard,Version=v1.6</NuGetTargetMoniker>
+  </PropertyGroup>
+</Project>

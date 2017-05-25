@@ -73,9 +73,9 @@ namespace Abc.Diagnostics.ExtraInformation {
                 throw new ArgumentNullException("dictionary");
             }
 
-            dictionary.Add(Abc.Diagnostics.SR.ExtraInformation_AuthenticationType, this.AuthenticationType);
-            dictionary.Add(Abc.Diagnostics.SR.ExtraInformation_IdentityName, this.IdentityName);
-            dictionary.Add(Abc.Diagnostics.SR.ExtraInformation_IsAuthenticated, this.IsAuthenticated.ToString());
+            dictionary.Add(SR.ExtraInformation_AuthenticationType, this.AuthenticationType);
+            dictionary.Add(SR.ExtraInformation_IdentityName, this.IdentityName);
+            dictionary.Add(SR.ExtraInformation_IsAuthenticated, this.IsAuthenticated.ToString());
         }
     }
 }

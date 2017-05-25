@@ -168,3 +168,4 @@ FakesAssemblies/
 
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
+/Reference Assemblies

@@ -330,7 +330,7 @@ namespace Abc.Diagnostics {
                 dictionary["ActivityType"] = this.type;
             }
 
-            LogUtility.Write(Abc.Diagnostics.SR.ActivityBoundary, new string[] { LogUtility.GeneralCategory, LogUtility.LogActivityCategory }, LogUtility.DefaultPriority, LogUtility.DefaultEventId, severity, LogUtility.LogSourceName, dictionary, null, this.Id);
+            LogUtility.Write(SR.ActivityBoundary, new string[] { LogUtility.GeneralCategory, LogUtility.LogActivityCategory }, LogUtility.DefaultPriority, LogUtility.DefaultEventId, severity, LogUtility.LogSourceName, dictionary, null, this.Id);
         }
 
         /// <summary>

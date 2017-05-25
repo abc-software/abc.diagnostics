@@ -237,17 +237,17 @@ namespace Abc.Diagnostics {
                     throw new ArgumentNullException("dict");
                 }
 
-                dict.Add(Abc.Diagnostics.SR.ExtraInformation_ExceptionType, this.exception.GetType().AssemblyQualifiedName);
-                dict.Add(Abc.Diagnostics.SR.ExtraInformation_ExceptionMessage, this.exception.Message);
-                dict.Add(Abc.Diagnostics.SR.ExtraInformation_ExceptionString, this.exception.ToString());
+                dict.Add(SR.ExtraInformation_ExceptionType, this.exception.GetType().AssemblyQualifiedName);
+                dict.Add(SR.ExtraInformation_ExceptionMessage, this.exception.Message);
+                dict.Add(SR.ExtraInformation_ExceptionString, this.exception.ToString());
 
                 // Stack Trace
-                dict.Add(Abc.Diagnostics.SR.ExtraInformation_StackTrace, DefaultLogWriter.StackTraceString(this.exception));
+                dict.Add(SR.ExtraInformation_StackTrace, DefaultLogWriter.StackTraceString(this.exception));
 
                 // Win32 Exception
                 System.ComponentModel.Win32Exception win32Exception = this.exception as System.ComponentModel.Win32Exception;
                 if (win32Exception != null) {
-                    dict.Add(Abc.Diagnostics.SR.ExtraInformation_NativeErrorCode, win32Exception.NativeErrorCode.ToString("X", CultureInfo.InvariantCulture));
+                    dict.Add(SR.ExtraInformation_NativeErrorCode, win32Exception.NativeErrorCode.ToString("X", CultureInfo.InvariantCulture));
                 }
             }
         }

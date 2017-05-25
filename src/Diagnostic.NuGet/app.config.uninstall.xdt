@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <configSections xdt:Transform="InsertIfMissing">
+    <section name="diagnosticConfiguration" type="Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0" xdt:Locator="Match(name, type)" xdt:Transform="Remove"/>
+  </configSections>
+  <diagnosticConfiguration xdt:Transform="Remove"/>
+</configuration>

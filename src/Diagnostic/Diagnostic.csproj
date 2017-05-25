@@ -39,30 +39,29 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
+    <BaseIntermediateOutputPath>obj\net20\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\net20\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET20</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Diagnostic.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\net20\Diagnostic.XML</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\Release\net20\</OutputPath>
     <DefineConstants>TRACE;NET20</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Diagnostic.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\net20\Diagnostic.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
@@ -101,6 +100,7 @@
     <Compile Include="EntrLibLogWriter.cs" />
     <Compile Include="EntrLib40LogWriter.cs" />
     <Compile Include="DefaultLogWriter.cs" />
+    <Compile Include="ExtensionAttribute.cs" />
     <Compile Include="ExtraInformation\DebugInformationProvider.cs" />
     <Compile Include="ExtraInformation\IStackTraceUtility.cs" />
     <Compile Include="ExtraInformation\IExtraInformationProvider.cs" />
@@ -110,6 +110,10 @@
     </None>
     <None Include="ExtraInformation\UnmanagedSecurityContextInformationProvider.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IExceptionUtility.cs" />
+    <Compile Include="IExceptionUtiltyExtension.cs" />
+    <Compile Include="ILogUtility.cs" />
+    <Compile Include="ILogUtilityExtension.cs" />
     <Compile Include="ILogWriter.cs" />
     <Compile Include="ILogSource.cs" />
     <Compile Include="ILogWriterCustomAttributes.cs" />

@@ -24,7 +24,11 @@ string className = GetFriendlyName(Path.GetFileNameWithoutExtension(candidate));
 // </auto-generated>
 //-----------------------------------------------------------------------------
 
-namespace <#= GetNamespace() #> {
+#if NET20 || NET30 || NET35 || NET40
+namespace Diagnostic {
+#else
+namespace Abc.Diagnostics {
+#endif
     using System;
     using System.Reflection;
 

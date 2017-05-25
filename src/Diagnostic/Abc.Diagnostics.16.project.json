@@ -1,21 +1,16 @@
-{
-  "supports": {
-    "net46.app": {}
-  },
+﻿{
   "dependencies": {
+    "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-    "NETStandard.Library": "1.6.0",
-
-    "System.Runtime.Loader": "4.0.0",
-    "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
-    "System.Diagnostics.StackTrace": "4.0.1",
-    "System.Diagnostics.Tools": "4.0.1",
-    "System.Diagnostics.TraceSource": "4.0.0",
-    "System.Xml.XmlDocument": "4.0.1",
-    "System.Xml.XPath": "4.0.1"
+    "NETStandard.Library": "1.6.1",
+    "System.Diagnostics.StackTrace": "4.3.0",
+    "System.Diagnostics.Tools": "4.3.0",
+    "System.Diagnostics.TraceSource": "4.3.0",
+    "System.Runtime.Loader": "4.3.0",
+    "System.Xml.XmlDocument": "4.3.0",
+    "System.Xml.XPath": "4.3.0"
   },
   "frameworks": {
-    "netstandard1.6": {
-    }
+    "netstandard1.6": {}
   }
 }

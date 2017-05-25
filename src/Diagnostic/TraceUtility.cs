@@ -168,6 +168,7 @@ namespace Abc.Diagnostics {
                             StopLogicalOperation();
                         }
                         catch (SecurityException) {
+                            // do nothing
                         }
                     }
                 }
@@ -209,7 +210,7 @@ namespace Abc.Diagnostics {
                 string methodName = this.GetExecutingMethodName();
                 Guid activityId = TraceUtility.GetActivityId(); 
                 string message = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.TraceStartMessage, activityId, methodName, tracingStartTicks);
+                    SR.Culture, SR.TraceStartMessage, activityId, methodName, tracingStartTicks);
 
                 this.WriteTraceMessage(message, TraceEventType.Start, activityId);
             }
@@ -223,7 +224,7 @@ namespace Abc.Diagnostics {
                 string methodName = this.GetExecutingMethodName();
                 Guid activityId = GetActivityId(); 
                 string message = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.TraceEndMessage, activityId, methodName, tracingEndTicks, secondsElapsed);
+                    SR.Culture, SR.TraceEndMessage, activityId, methodName, tracingEndTicks, secondsElapsed);
 
                 this.WriteTraceMessage(message, TraceEventType.Stop, activityId);
             }

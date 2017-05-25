@@ -58,7 +58,7 @@ namespace Abc.Diagnostics {
         /// </value>
         public bool IsTracingEnabled {
             get {
-                return HasTraceListeners(new TraceSource(Abc.Diagnostics.SR.TraceAsTraceSource));
+                return HasTraceListeners(new TraceSource(SR.TraceAsTraceSource));
             }
         }
 
@@ -84,7 +84,7 @@ namespace Abc.Diagnostics {
                 foreach (string category in categories) {
                     TraceSource ts = new TraceSource(category);
                     if (!HasTraceListeners(ts)) {
-                        ts = new TraceSource(Abc.Diagnostics.SR.TraceAsTraceSource); 
+                        ts = new TraceSource(SR.TraceAsTraceSource); 
                     }
 #if !NETSTANDARD
                     if (severity == TraceEventType.Transfer && relatedActivityId.HasValue) {
@@ -200,7 +200,7 @@ namespace Abc.Diagnostics {
             }
             catch (System.Security.SecurityException) {
                 stackTrace = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.ExtraInformation_PropertyError, Abc.Diagnostics.SR.ExtraInformation_StackTraceSecurityException);
+                    SR.Culture, SR.ExtraInformation_PropertyError, SR.ExtraInformation_StackTraceSecurityException);
             }
             catch (Exception ex) {
                 if (ExceptionUtility.IsFatal(ex)) {
@@ -208,11 +208,11 @@ namespace Abc.Diagnostics {
                 }
 
                 stackTrace = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.ExtraInformation_PropertyError, Abc.Diagnostics.SR.ExtraInformation_StackTraceException);
+                    SR.Culture, SR.ExtraInformation_PropertyError, SR.ExtraInformation_StackTraceException);
             }
 #else
                 stackTrace = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.ExtraInformation_PropertyError, Abc.Diagnostics.SR.ExtraInformation_StackTraceException);
+                    SR.Culture, SR.ExtraInformation_PropertyError, SR.ExtraInformation_StackTraceException);
 #endif
 
             return stackTrace; 

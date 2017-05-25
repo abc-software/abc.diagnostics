@@ -78,7 +78,7 @@ namespace Abc.Diagnostics.ExtraInformation {
             }
             catch (SecurityException) {
                 stackTrace = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.ExtraInformation_PropertyError, Abc.Diagnostics.SR.ExtraInformation_StackTraceSecurityException);
+                    SR.Culture, SR.ExtraInformation_PropertyError, SR.ExtraInformation_StackTraceSecurityException);
             }
             catch (Exception ex) {
                 if (ExceptionUtility.IsFatal(ex)) {
@@ -86,10 +86,10 @@ namespace Abc.Diagnostics.ExtraInformation {
                 }
 
                 stackTrace = string.Format(
-                    Abc.Diagnostics.SR.Culture, Abc.Diagnostics.SR.ExtraInformation_PropertyError, Abc.Diagnostics.SR.ExtraInformation_StackTraceException);
+                    SR.Culture, SR.ExtraInformation_PropertyError, SR.ExtraInformation_StackTraceException);
             }
 
-            dictionary.Add(Abc.Diagnostics.SR.ExtraInformation_StackTrace, stackTrace);
+            dictionary.Add(SR.ExtraInformation_StackTrace, stackTrace);
         }
 
         #endregion
@@ -110,8 +110,8 @@ namespace Abc.Diagnostics.ExtraInformation {
                     throw new ArgumentNullException("stackTrace");
                 }
 
-                string aatString = Abc.Diagnostics.SR.ExtraInformation_SchemaHelperAtString;
-                string unknownTypeString = Abc.Diagnostics.SR.ExtraInformation_SchemaHelperUnknownType;
+                string aatString = SR.ExtraInformation_SchemaHelperAtString;
+                string unknownTypeString = SR.ExtraInformation_SchemaHelperUnknownType;
                 string newLine = Environment.NewLine;
 
                 StringBuilder stringBuilder = new StringBuilder(255);
@@ -159,8 +159,8 @@ namespace Abc.Diagnostics.ExtraInformation {
                         if (fileName != null) {
                             stringBuilder.Append(
                                 string.Format(
-                                    Abc.Diagnostics.SR.Culture,
-                                    Abc.Diagnostics.SR.ExtraInformation_SchemaHelperLine, 
+                                    SR.Culture,
+                                    SR.ExtraInformation_SchemaHelperLine, 
                                     fileName, 
                                     stackFrame.GetFileLineNumber()));
                         }

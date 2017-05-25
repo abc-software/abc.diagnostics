@@ -39,32 +39,30 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
-    <BaseIntermediateOutputPath>obj\45\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\net45\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug.45\</OutputPath>
+    <OutputPath>bin\Debug\net45\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug.45\Abc.Diagnostics.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\net45\Abc.Diagnostics.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release.45\</OutputPath>
+    <OutputPath>bin\Release\net45\</OutputPath>
     <DefineConstants>TRACE;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.45\Abc.Diagnostics.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\net45\Abc.Diagnostics.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -112,8 +110,11 @@
       <LastGenOutput>ConfigSR.Designer.cs</LastGenOutput>
     </None>
     <None Include="ExtraInformation\UnmanagedSecurityContextInformationProvider.cs" />
-    <None Include="Filters\NotificationFilter.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IExceptionUtility.cs" />
+    <Compile Include="IExceptionUtiltyExtension.cs" />
+    <Compile Include="ILogUtility.cs" />
+    <Compile Include="ILogUtilityExtension.cs" />
     <Compile Include="ILogWriter.cs" />
     <Compile Include="ILogSource.cs" />
     <Compile Include="ILogWriterCustomAttributes.cs" />

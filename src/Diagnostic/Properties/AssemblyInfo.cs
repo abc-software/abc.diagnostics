@@ -19,8 +19,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ABC software")]
-[assembly: AssemblyProduct("EVES")]
-[assembly: AssemblyCopyright("Copyright © ABC software 2008-2016")]
+[assembly: AssemblyProduct("")]
+[assembly: AssemblyCopyright("Copyright © ABC software 2008-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -49,7 +49,7 @@ using System.Runtime.InteropServices;
 #else
 [assembly: AssemblyVersion("1.2")]
 [assembly: AssemblyFileVersion("1.2.0.0")]
-[assembly: AssemblyInformationalVersion("1.2.0-beta")]
+[assembly: AssemblyInformationalVersion("1.2.0-beta2")]
 #endif
 
 [assembly: CLSCompliant(true)] 

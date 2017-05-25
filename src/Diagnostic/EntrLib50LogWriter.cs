@@ -70,8 +70,10 @@ namespace Abc.Diagnostics {
                                         "Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35");
                             }
                             catch (FileNotFoundException) {
+                                // do nothing
                             }
                             catch (FileLoadException) {
+                                // do nothing
                             }
 
                             // EntrLib5.0 Optional Update 1
@@ -82,8 +84,10 @@ namespace Abc.Diagnostics {
                                             "Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35");
                                 }
                                 catch (FileNotFoundException) {
+                                    // do nothing
                                 }
                                 catch (FileLoadException) {
+                                    // do nothing
                                 }
                             }
                         }

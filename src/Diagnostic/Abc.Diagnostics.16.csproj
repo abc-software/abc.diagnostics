@@ -21,32 +21,30 @@
     <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Properties\eves.snk</AssemblyOriginatorKeyFile>
-    <BaseIntermediateOutputPath>obj\16\</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\netstandart16\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug.16\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_5;NETSTANDARD</DefineConstants>
+    <OutputPath>bin\Debug\netstandart16\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_6;NETSTANDARD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug.16\Abc.Diagnostics.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandart16\Abc.Diagnostics.xml</DocumentationFile>
     <RunCodeAnalysis>false</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release.16\</OutputPath>
+    <OutputPath>bin\Release\netstandart16\</OutputPath>
     <DefineConstants>TRACE;NETSTANDARD1_6;NETSTANDARD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release.16\Abc.Diagnostics.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>
-    </CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\netstandart16\Abc.Diagnostics.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -55,12 +53,16 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IExceptionUtility.cs" />
+    <Compile Include="IExceptionUtiltyExtension.cs" />
+    <Compile Include="ILogUtility.cs" />
+    <Compile Include="ILogUtilityExtension.cs" />
     <Compile Include="SR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SR.tt</DependentUpon>
     </Compile>
-    <None Include="Abc.Diagnostics.16.Release.ruleset" />
+    <None Include="Abc.Diagnostics.16.ruleset" />
     <None Include="Activity.cs" />
     <None Include="Abc.Diagnostics.45.ruleset" />
     <None Include="Class Diagrams\Diagnostic.cd" />

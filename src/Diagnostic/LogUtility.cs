@@ -31,7 +31,7 @@ namespace Abc.Diagnostics {
     /// <summary>
     /// Represent tracing utility.
     /// </summary>
-    public class LogUtility {
+    public class LogUtility : ILogUtility {
         /// <summary>
         /// Category name for logging exception.
         /// </summary>
@@ -44,11 +44,7 @@ namespace Abc.Diagnostics {
 
         internal const int DefaultPriority = -1;
         internal const int DefaultEventId = 0;
-        private const TraceEventType DefaultSeverity = TraceEventType.Verbose;
-        private const TraceEventType DefaultExceptionSeverity = TraceEventType.Error;
         private const string EventSourceName = "Abc.Diagnostics";
-
-        private static readonly ICollection<string> EmptyCategoriesList = new List<string>(0);
 
         private static object sync = new object();
         private static volatile ILogWriter writer;
@@ -174,9 +170,19 @@ namespace Abc.Diagnostics {
             get { return this.sourceName; }
         }
 
-#endregion
+        #endregion
 
-#region Write Static
+        /// <summary>
+        /// Sets the log writer.
+        /// </summary>
+        /// <param name="w">The log writer.</param>
+        public static void SetLogWriter(ILogWriter w) {
+            lock (sync) {
+                writer = w;
+            }
+        }
+
+        #region Write Static
         /// <summary>
         /// Write a new log entry with a specific category, priority, event Id, severity
         /// title and dictionary of extended properties.
@@ -281,144 +287,8 @@ namespace Abc.Diagnostics {
 
         #endregion
 
-        #region Write
-        /// <overloads>
-        /// Write a new log entry to the default category.
-        /// </overloads>
-        /// <summary>
-        /// Write a new log entry to the default category.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// one required parameter, message.
-        /// <code>Logger.Write("My message body");</code></example>
-        /// <param name="message">Message body to log.</param>
-        public void Write(string message) {
-            this.WriteCore(message, EmptyCategoriesList, DefaultPriority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
-        }
 
-        /// <summary>
-        /// Write a new log entry to a specific category.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        public void Write(string message, string category) {
-            this.WriteCore(message, new string[] { category }, DefaultPriority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category and priority.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        public void Write(string message, string category, int priority) {
-            this.WriteCore(message, new string[] { category }, priority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority and event id.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="eventId">Event number or identifier.</param>
-        public void Write(string message, string category, int priority, int eventId) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, DefaultSeverity, null, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event id and severity.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="eventId">Event number or identifier.</param>
-        /// <param name="severity">Log entry severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
-        public void Write(string message, string category, int priority, int eventId, TraceEventType severity) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event id and severity.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="eventId">Event number or identifier.</param>
-        /// <param name="severity">Log entry severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
-        /// <param name="activityId">The qualified name of activity.</param>
-        public void Write(string message, string category, int priority, int eventId, TraceEventType severity, Guid activityId) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, activityId);
-        }
-#endregion
-
-        #region Write with Properties
-        /// <summary>
-        /// Write a new log entry and a dictionary of extended properties.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="properties">Dictionary of key/value pairs to log.</param>
-        public void Write(string message, IDictionary<string, object> properties) {
-            this.WriteCore(message, EmptyCategoriesList, DefaultPriority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry to a specific category with a dictionary 
-        /// of extended properties.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="properties">Dictionary of key/value pairs to log.</param>
-        public void Write(string message, string category, IDictionary<string, object> properties) {
-            this.WriteCore(message, new string[] { category }, DefaultPriority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry to with a specific category, priority and a dictionary 
-        /// of extended properties.
-        /// </summary>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="properties">Dictionary of key/value pairs to log.</param>
-        public void Write(string message, string category, int priority, IDictionary<string, object> properties) {
-            this.WriteCore(message, new string[] { category }, priority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event Id, severity
-        /// title and dictionary of extended properties.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// a full set of parameters.
-        /// <code></code></example>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="eventId">Event number or identifier.</param>
-        /// <param name="severity">Log message severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
-        /// <param name="properties">Dictionary of key/value pairs to log.</param>
-        public void Write(string message, string category, int priority, int eventId, TraceEventType severity, IDictionary<string, object> properties) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, properties, Guid.Empty);
-        }
-        
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event Id, severity
-        /// title and dictionary of extended properties.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// a full set of parameters.
-        /// <code></code></example>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="categories">Category names used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="eventId">Event number or identifier.</param>
-        /// <param name="severity">Log message severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
-        /// <param name="properties">Dictionary of key/value pairs to log.</param>
-        public void Write(string message, ICollection<string> categories, int priority, int eventId, TraceEventType severity, IDictionary<string, object> properties) {
-            this.WriteCore(message, categories, priority, eventId, severity, properties, Guid.Empty);
-        }
-
+#region Write with Properties
         /// <summary>
         /// Write a new log entry with a specific category, priority, event Id, severity
         /// title and dictionary of extended properties.
@@ -436,68 +306,9 @@ namespace Abc.Diagnostics {
         public void Write(string message, ICollection<string> categories, int priority, int eventId, TraceEventType severity, IDictionary<string, object> properties, Guid activityId) {
             this.WriteCore(message, categories, priority, eventId, severity, properties, activityId);
         }
-        #endregion
+#endregion
 
-        #region Write with Exception
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event Id, severity
-        /// title and dictionary of extended properties.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// a full set of parameters.
-        /// <code></code></example>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="exception">Exception to log.</param>
-        public void Write(string message, Exception exception) {
-            this.WriteCore(message, EmptyCategoriesList, DefaultPriority, DefaultEventId, DefaultExceptionSeverity, null, exception, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event Id, severity
-        /// title and dictionary of extended properties.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// a full set of parameters.
-        /// <code></code></example>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="exception">Exception to log.</param>
-        public void Write(string message, string category, Exception exception) {
-            this.Write(message, category, DefaultPriority, DefaultEventId, DefaultExceptionSeverity, exception, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event Id, severity
-        /// title and dictionary of extended properties.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// a full set of parameters.
-        /// <code></code></example>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="exception">Exception to log.</param>
-        public void Write(string message, string category, int priority, Exception exception) {
-            this.Write(message, category, priority, DefaultEventId, DefaultExceptionSeverity, exception, Guid.Empty);
-        }
-
-        /// <summary>
-        /// Write a new log entry with a specific category, priority, event Id, severity
-        /// title and dictionary of extended properties.
-        /// </summary>
-        /// <example>The following example demonstrates use of the Write method with
-        /// a full set of parameters.
-        /// <code></code></example>
-        /// <param name="message">Message body to log.</param>
-        /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
-        /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
-        /// <param name="eventId">Event number or identifier.</param>
-        /// <param name="severity">Log message severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
-        /// <param name="exception">Exception to log.</param>
-        public void Write(string message, string category, int priority, int eventId, TraceEventType severity, Exception exception) {
-            this.Write(message, category, priority, eventId, severity, exception, Guid.Empty);
-        }
-
+#region Write with Exception
         /// <summary>
         /// Write a new log entry with a specific category, priority, event Id, severity
         /// title and dictionary of extended properties.
@@ -515,7 +326,7 @@ namespace Abc.Diagnostics {
         public void Write(string message, string category, int priority, int eventId, TraceEventType severity, Exception exception, Guid activityId) {
             this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, exception, activityId);
         }
-        #endregion
+#endregion
 
         /// <summary>
         /// Public for testing purposes.
@@ -619,7 +430,7 @@ namespace Abc.Diagnostics {
 
                     currentDomain.UnhandledException += (sender, e) => {
                         Exception exception = (Exception)e.ExceptionObject;
-                        this.Write(Abc.Diagnostics.SR.UnhandledException, GeneralCategory, DefaultPriority, DefaultEventId, TraceEventType.Critical, exception);
+                        this.Write(SR.UnhandledException, GeneralCategory, DefaultPriority, DefaultEventId, TraceEventType.Critical, exception);
                         this.ShutdownTracing();
                     };
 #elif NETSTANDARD1_5 || NETSTANDARD1_6
@@ -639,7 +450,7 @@ namespace Abc.Diagnostics {
         private void ShutdownTracing() {
             if (!this.calledShutdown) {
                 try {
-                    this.Write(Abc.Diagnostics.SR.TraceCodeAppDomainUnload, GeneralCategory, DefaultPriority, DefaultEventId, TraceEventType.Information);
+                    this.Write(SR.TraceCodeAppDomainUnload, GeneralCategory, DefaultPriority, DefaultEventId, TraceEventType.Information);
 
                     this.calledShutdown = true;
                     LogUtility.Writer.Flush();

@@ -7,7 +7,11 @@
 // </auto-generated>
 //-----------------------------------------------------------------------------
 
+#if NET20 || NET30 || NET35 || NET40
+namespace Diagnostic {
+#else
 namespace Abc.Diagnostics {
+#endif
     using System;
     using System.Reflection;
 
