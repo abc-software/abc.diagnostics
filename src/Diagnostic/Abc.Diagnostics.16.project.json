@@ -3,6 +3,7 @@
     "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
     "NETStandard.Library": "1.6.1",
+    "SonarAnalyzer.CSharp": "5.11.0.1761",
     "System.Diagnostics.StackTrace": "4.3.0",
     "System.Diagnostics.Tools": "4.3.0",
     "System.Diagnostics.TraceSource": "4.3.0",

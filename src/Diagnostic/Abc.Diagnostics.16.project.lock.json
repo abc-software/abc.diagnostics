@@ -313,6 +313,9 @@
           }
         }
       },
+      "SonarAnalyzer.CSharp/5.11.0.1761": {
+        "type": "package"
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1794,6 +1797,20 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "SonarAnalyzer.CSharp/5.11.0.1761": {
+      "sha512": "xEVYsepbuTukLxVH3cNR1sFmA2wv4lIiqTya/zMzjIEwiRBJDvK5GDqYFm+xF/BP3Vm9ZbAMYbE0U0bQgRyl0A==",
+      "type": "package",
+      "path": "SonarAnalyzer.CSharp/5.11.0.1761",
+      "files": [
+        "SonarAnalyzer.CSharp.5.11.0.1761.nupkg.sha512",
+        "SonarAnalyzer.CSharp.nuspec",
+        "analyzers/Google.Protobuf.dll",
+        "analyzers/SonarAnalyzer.CSharp.dll",
+        "analyzers/SonarAnalyzer.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -4871,6 +4888,7 @@
       "Microsoft.Extensions.PlatformAbstractions >= 1.1.0",
       "Microsoft.NETCore.Portable.Compatibility >= 1.0.1",
       "NETStandard.Library >= 1.6.1",
+      "SonarAnalyzer.CSharp >= 5.11.0.1761",
       "System.Diagnostics.StackTrace >= 4.3.0",
       "System.Diagnostics.Tools >= 4.3.0",
       "System.Diagnostics.TraceSource >= 4.3.0",

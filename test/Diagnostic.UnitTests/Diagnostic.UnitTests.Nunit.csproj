@@ -119,7 +119,6 @@
     <Compile Include="DefaultLogWriterFixture.cs" />
     <Compile Include="TestLogWriterCustomFactory.cs" />
     <Compile Include="LogActivityFixture.cs" />
-    <None Include="DiagnosticTools.cs" />
     <Compile Include="DiagnosticToolsFixture.cs" />
     <Compile Include="ExtraInformationFixture.cs" />
     <Compile Include="ExceptionUtilityFixture.cs" />
@@ -130,7 +129,9 @@
     <Compile Include="TracerFixture.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Diagnostic.UnitTests.Nunit.nunit" />
     <None Include="packages.config" />
     <None Include="Properties\eves.snk" />

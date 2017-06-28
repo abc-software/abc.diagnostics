@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>2fbd2bda-3aaa-4fa3-8f4e-f07e439c0c1c</ProjectGuid>
+    <OutputPath>Bin\</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuBuildVersionSource>Library</NuBuildVersionSource>
+    <NuBuildVersionFileName>True</NuBuildVersionFileName>
+    <NuBuildAddBinariesToSubfolder>True</NuBuildAddBinariesToSubfolder>
+    <NuBuildIncludePdbs>False</NuBuildIncludePdbs>
+    <Name>Diagnostic.v10.NuGet</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Diagnostic.v10.NuGet.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diagnostic\Abc.Diagnostics.35.csproj">
+      <Name>Abc.Diagnostics.35</Name>
+      <Project>{9258cec4-adb4-40dd-b70c-4966b9470889}</Project>
+      <Private>True</Private>
+      <NuBuildTargetFolder>lib\net35</NuBuildTargetFolder>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagnostic\Diagnostic.csproj">
+      <Name>Diagnostic</Name>
+      <Project>{202129af-4956-444b-a0b8-0bf7d018696a}</Project>
+      <Private>True</Private>
+      <NuBuildTargetFolder>lib\net20</NuBuildTargetFolder>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\NuBuild\v1\NuBuild.targets" />
+</Project>

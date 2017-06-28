@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Adding Abc.Dignostics libraries to your .NET project</title>
+</head>
+<body>
+
+    <h3 id="adding-abc.dignostics-libraries-to-your.net-project">Adding Abc.Dignostics libraries to your .NET project</h3>
+<p>The best and easiest way to add the Abc.Dignostics libraries to your .NET project is to use the NuGet package manager.</p>
+<h4 id="with-visual-studio-ide">With Visual Studio IDE</h4>
+<p>From within Visual Studio, you can use the NuGet GUI to search for and install the Abc.Dignostics NuGet package. Or, as a shortcut, simply type the following command into the Package Manager Console:</p>
+<p>Install-Package Abc.Diagnostics</p>
+<h3 id="configuration">Configuration</h3>
+<p>Configure sections in application configuration file</p>
+<pre><code class="language-xml">&lt;configSections&gt;
+    &lt;section name=&quot;diagnosticConfiguration&quot; type=&quot;Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0&quot;/&gt;
+&lt;/configSections&gt;
+</code></pre>
+<h3 id="nuget-package-changes">Nuget package changes</h3>
+<p>Nuget package <em>Abc.Diagnostics.dll</em> splitted to two packages
+<em>Abc.Diagnostics V1.0</em> for net20, net35 and <em>Abc.Diagnostics V1.2</em> for net4.5, netstandart16.</p>
+<h4 id="retarget.net20.net3.0.net3.5.net4.0-project-to-abc.diagnostics-v1.0">Retarget .NET20, .NET3.0, .NET3.5, .NET4.0 project to Abc.Diagnostics V1.0</h4>
+<ul>
+<li><p>Type the following commands into the Package Manager Console:</p>
+<ul>
+<li><p>Unnstall-Package Abc.Diagnostics.dll</p>
+</li>
+<li><p>Install-Package Abc.Diagnostics -Version 1.0.11</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="retarget.net45-project-to-abc.diagnostics-v1.2">Retarget .NET45 project to Abc.Diagnostics V1.2</h4>
+<ul>
+<li><p>Type the following commands into the Package Manager Console:</p>
+<ul>
+<li><p>Unnstall-Package Abc.Diagnostics.dll</p>
+</li>
+<li><p>Install-Package Abc.Diagnostics</p>
+</li>
+</ul>
+</li>
+<li><p>Replace namespace <em>Diagnostic</em> to <em>Abc.Diagnostics</em></p>
+</li>
+<li><p>Recompile project</p>
+</li>
+</ul>
+
+
+</body>
+</html>

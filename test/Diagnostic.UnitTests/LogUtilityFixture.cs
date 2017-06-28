@@ -306,7 +306,7 @@ namespace Diagnostic.UnitTests
         public void WriteMessageCategoryAndNullExceptionOverload() {
             LogUtility target = new LogUtility(title);
             Exception exception = null;
-            target.Write(message, exception);
+            target.Write(message, category, exception);
 
             Assert.IsNotNull(MockTraceListener.LastEntry);
             Assert.AreEqual(title, MockTraceListener.LastEntry.Title, "sourcename");

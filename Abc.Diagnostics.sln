@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		gpl-3_0.txt = gpl-3_0.txt
 		History.md = History.md
 		lgpl-3_0.txt = lgpl-3_0.txt
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostic", "src\Diagnostic\Diagnostic.csproj", "{202129AF-4956-444B-A0B8-0BF7D018696A}"
@@ -31,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.35", "src\Diagnostic\Abc.Diagnostics.35.csproj", "{9258CEC4-ADB4-40DD-B70C-4966B9470889}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.16", "src\Diagnostic\Abc.Diagnostics.16.csproj", "{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}"
+EndProject
+Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "Diagnostic.v10.NuGet", "src\Diagnostic.v10.NuGet\Diagnostic.v10.NuGet.nuproj", "{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -126,6 +129,18 @@ Global
 		{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}.Release|x86.ActiveCfg = Release|Any CPU
 		{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}.Release|x86.Build.0 = Release|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|x86.Build.0 = Debug|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

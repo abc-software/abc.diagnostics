@@ -51,7 +51,8 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\net45\Abc.Diagnostics.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -62,7 +63,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\net45\Abc.Diagnostics.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>Abc.Diagnostics.16.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -130,6 +132,7 @@
     </Compile>
     <Compile Include="TraceUtility.cs" />
     <None Include="lgpl-3.licenseheader" />
+    <None Include="packages.Abc.Diagnostics.45.config" />
     <None Include="SR.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SR.Designer.cs</LastGenOutput>
@@ -180,6 +183,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.0.0.2033\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.0.0.2033\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.0.0.2033\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Target Name="AfterBuild">
     <Copy SourceFiles="@(SourceFiles)" DestinationFolder="$(ProjectDir)..\..\Reference Assemblies" />
