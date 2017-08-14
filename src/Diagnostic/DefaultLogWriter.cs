@@ -117,6 +117,7 @@ namespace Abc.Diagnostics {
         /// Flushes log writer.
         /// </summary>
         public void Flush() {
+            // Do nothing
         }
 
 #region BuildTraceRecord

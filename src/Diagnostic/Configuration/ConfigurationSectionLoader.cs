@@ -30,11 +30,13 @@ namespace Abc.Diagnostics.Configuration {
     /// </summary>
     /// <typeparam name="T">The configuration section type.</typeparam>
     internal class ConfigurationSectionLoader<T> where T : ConfigurationSection, new() {
+#pragma warning disable S2743 // Static fields should not be used in generic types
         private static Exception configurationException;
         private static int recursionGuard = 0;
         private static object configurationLock = new object();
         private static T sectionObject = default(T);
         private static string name;
+#pragma warning restore S2743 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationSectionLoader&lt;T&gt;"/> class.
@@ -45,7 +47,9 @@ namespace Abc.Diagnostics.Configuration {
                 throw new ArgumentNullException("sectionName");
             }
 
+#pragma warning disable S3010 // Static fields should not be updated in constructors
             name = sectionName;
+#pragma warning restore 
         }
 
         /// <summary>
