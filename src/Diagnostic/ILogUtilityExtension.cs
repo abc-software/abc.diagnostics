@@ -251,7 +251,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, string.Empty, DefaultPriority, DefaultEventId, DefaultExceptionSeverity, exception, Guid.Empty);
+            logUtility.Write(message, null, DefaultPriority, DefaultEventId, DefaultExceptionSeverity, exception, Guid.Empty);
         }
 
         /// <summary>

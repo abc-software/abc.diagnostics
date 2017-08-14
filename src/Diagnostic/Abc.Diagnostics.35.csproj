@@ -131,7 +131,9 @@
     </Compile>
     <Compile Include="TraceUtility.cs" />
     <None Include="lgpl-3.licenseheader" />
-    <None Include="packages.Abc.Diagnostics.35.config" />
+    <None Include="packages.Abc.Diagnostics.35.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SR.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SR.Designer.cs</LastGenOutput>
@@ -184,9 +186,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.0.0.2033\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.0.0.2033\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.0.0.2033\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Target Name="AfterBuild">
     <Copy SourceFiles="@(SourceFiles)" DestinationFolder="$(ProjectDir)..\..\Reference Assemblies" />

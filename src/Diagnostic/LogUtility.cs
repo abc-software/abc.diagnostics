@@ -324,7 +324,7 @@ namespace Abc.Diagnostics {
         /// <param name="exception">Exception to log.</param>
         /// <param name="activityId">The qualified name of activity.</param>
         public void Write(string message, string category, int priority, int eventId, TraceEventType severity, Exception exception, Guid activityId) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, exception, activityId);
+            this.WriteCore(message, category != null ? new string[] { category } : new string[0], priority, eventId, severity, null, exception, activityId);
         }
 #endregion
 

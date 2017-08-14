@@ -44,12 +44,12 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 #if NET20 || NET30 || NET35 || NET40
 [assembly: AssemblyVersion("1.0")]
-[assembly: AssemblyFileVersion("1.0.0.11")]
-[assembly: AssemblyInformationalVersion("1.0.11")]
+[assembly: AssemblyFileVersion("1.0.0.12")]
+[assembly: AssemblyInformationalVersion("1.0.12")]
 #else
 [assembly: AssemblyVersion("1.2")]
 [assembly: AssemblyFileVersion("1.2.0.0")]
-[assembly: AssemblyInformationalVersion("1.2.0-beta2")]
+[assembly: AssemblyInformationalVersion("1.2.0-rc")]
 #endif
 
 [assembly: CLSCompliant(true)] 

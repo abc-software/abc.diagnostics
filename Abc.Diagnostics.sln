@@ -21,7 +21,7 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Diagnostic.Setup", "src\Dia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.45", "src\Diagnostic\Abc.Diagnostics.45.csproj", "{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}"
 EndProject
-Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "Diagnostic.NuGet", "src\Diagnostic.NuGet\Diagnostic.NuGet.nuproj", "{6B5D7721-8CE8-4796-9B11-E2F1F12A0929}"
+Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "Abc.Diagnostics.NuGet", "src\Diagnostic.NuGet\Abc.Diagnostics.NuGet.nuproj", "{6B5D7721-8CE8-4796-9B11-E2F1F12A0929}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{2B86F97A-1C5B-4D18-9191-7FB0B7EDA642}"
 	ProjectSection(SolutionItems) = preProject

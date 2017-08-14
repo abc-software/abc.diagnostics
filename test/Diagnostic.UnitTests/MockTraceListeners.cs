@@ -163,7 +163,7 @@ namespace Diagnostic.UnitTests {
         /// </summary>
         /// <param name="message">A message to write.</param>
         public override void Write(string message) {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException("The method or operation is not implemented.");
         }
 
 
@@ -172,7 +172,7 @@ namespace Diagnostic.UnitTests {
         /// </summary>
         /// <param name="message">A message to write.</param>
         public override void WriteLine(string message) {
-            throw new Exception("The method or operation is not implemented.");
+            throw new NotImplementedException("The method or operation is not implemented.");
         }
 
         /// <summary>
