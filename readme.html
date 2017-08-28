@@ -45,6 +45,74 @@
 <li><p>Recompile project</p>
 </li>
 </ul>
+<h3 id="configuration-for-development-environment">Configuration for development environment</h3>
+<p>Configure sections in application configuration file</p>
+<pre><code class="language-xml">&lt;configSections&gt;
+    &lt;section name=&quot;diagnosticConfiguration&quot; type=&quot;Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0&quot;/&gt;
+&lt;/configSections&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;diagnosticConfiguration type=&quot;Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics&quot; defaultCategory=&quot;category&quot; /&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;system.diagnostics&gt;
+    &lt;sources&gt;
+        &lt;source name=&quot;category&quot; switchValue=&quot;All&quot;&gt;
+            &lt;listeners&gt;
+                &lt;add name=&quot;listener&quot; initializeData=&quot;trace.svclog&quot; type=&quot;System.Diagnostics.XmlWriterTraceListener, System.Diagnostics&quot; /&gt;
+            &lt;/listeners&gt; 
+        &lt;/source&gt;
+    &lt;/sources&gt;
+&lt;/system.diagnostics&gt;
+</code></pre>
+<h3 id="configuration-using-microsoft-enterprise-library">Configuration using Microsoft enterprise library</h3>
+<p>Configure sections in application configuration file</p>
+<pre><code class="language-xml">&lt;configSections&gt;
+    &lt;section name=&quot;diagnosticConfiguration&quot; type=&quot;Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0&quot;/&gt;
+    &lt;section name=&quot;loggingConfiguration&quot; type=&quot;Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.LoggingSettings, Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35&quot;/&gt;
+    &lt;section name=&quot;dataConfiguration&quot; type=&quot;Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings, Microsoft.Practices.EnterpriseLibrary.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35&quot;/&gt;
+&lt;/configSections&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;diagnosticConfiguration type=&quot;Abc.Diagnostics.EntrLib40LogWriter, Abc.Diagnostics&quot;/&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>EntrLib version</th>
+<th style="text-align: left;">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V3.0</td>
+<td style="text-align: left;">Abc.Diagnostics.EntrLib30LogWriter</td>
+</tr>
+<tr>
+<td>V4.0</td>
+<td style="text-align: left;">Abc.Diagnostics.EntrLib40LogWriter</td>
+</tr>
+<tr>
+<td>V5.0, V5.0 Upd 1</td>
+<td style="text-align: left;">Abc.Diagnostics.EntrLib50LogWriter</td>
+</tr>
+<tr>
+<td>V6.0</td>
+<td style="text-align: left;">Abc.Diagnostics.EntrLib60LogWriter</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-xml">&lt;loggingConfiguration name=&quot;Logging Application Block&quot; defaultCategory=&quot;category&quot;&gt;
+    &lt;listeners&gt;
+      &lt;add name=&quot;listener&quot; type=&quot;Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging&quot;/&gt;
+    &lt;/listeners&gt;
+    
+    &lt;categorySources&gt;
+      &lt;add name=&quot;category&quot; switchValue=&quot;All&quot;&gt;
+        &lt;listeners&gt;
+          &lt;add name=&quot;listener&quot;/&gt;
+        &lt;/listeners&gt;
+      &lt;/add&gt;
+    &lt;/categorySources&gt;
+&lt;/loggingConfiguration&gt;
+</code></pre>
 
 
 </body>
