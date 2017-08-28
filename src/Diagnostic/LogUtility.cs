@@ -347,6 +347,8 @@ namespace Abc.Diagnostics {
                 if (oldWriter != null) {
                     oldWriter.Dispose();
                 }
+
+                logSourceName = null;
             }
         }
 

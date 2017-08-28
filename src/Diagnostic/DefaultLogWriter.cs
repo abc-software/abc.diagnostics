@@ -33,7 +33,10 @@ namespace Abc.Diagnostics {
     /// <summary>
     /// Default Log Writer
     /// </summary>
-    public class DefaultLogWriter : ILogWriter {
+    public class DefaultLogWriter : ILogWriter, ILogWriterCustomAttributes {
+        private const string DefaultCategoryAttributeName = "defaultCategory";
+        private string defaultCategory = LogUtility.GeneralCategory;
+
 #if !NETSTANDARD
         private static readonly string AppDomainName = AppDomain.CurrentDomain.FriendlyName;
 #endif
@@ -81,35 +84,37 @@ namespace Abc.Diagnostics {
         /// <code></code></example>
         public void Write(string message, ICollection<string> categories, int priority, int eventId, TraceEventType severity, string title, IDictionary<string, object> properties, Exception exception, Guid activityId, Guid? relatedActivityId) {
             if (categories != null && categories.Count > 0) {
-                foreach (string category in categories) {
-                    TraceSource ts = new TraceSource(category);
-                    if (!HasTraceListeners(ts)) {
-                        ts = new TraceSource(SR.TraceAsTraceSource); 
-                    }
-#if !NETSTANDARD
-                    if (severity == TraceEventType.Transfer && relatedActivityId.HasValue) {
-                        ts.TraceTransfer(eventId, message, relatedActivityId.Value);
-                    }
-                    else {
-#else               
-                    {
-#endif
-                        ts.TraceData(severity, eventId, BuildTraceRecord(message, priority, severity, title, properties, exception));
-                    }
+                foreach (string item in categories) {
+                    string category = !string.IsNullOrEmpty(item) ? item : this.defaultCategory;
+                    this.Write(message, category, priority, eventId, severity, title, properties, exception, relatedActivityId);
                 }
             }
             else {
-                TraceSource ts = new TraceSource(LogUtility.GeneralCategory);
-#if !NETSTANDARD
-                if (severity == TraceEventType.Transfer && relatedActivityId.HasValue) {
-                    ts.TraceTransfer(eventId, message, relatedActivityId.Value);
-                }
-                else {
-#else
-                {
-#endif
-                    ts.TraceData(severity, eventId, BuildTraceRecord(message, priority, severity, title, properties, exception));
-                }
+                this.Write(message, this.defaultCategory, priority, eventId, severity, title, properties, exception, relatedActivityId);
+            }
+        }
+
+        /// <summary>
+        /// Gets the custom attributes supported by the Log writer.
+        /// </summary>
+        /// <returns>
+        /// A naming enumeration the custom attributes supported by the trace listener, or <c>null</c> if there are no custom attributes
+        /// </returns>
+        public IEnumerable<string> GetSupportedAttributes() {
+            return new string[] { DefaultCategoryAttributeName };
+        }
+
+        /// <summary>
+        /// Sets the attributes.
+        /// </summary>
+        /// <param name="attributes">The attributes.</param>
+        public void SetAttributes(IDictionary<string, string> attributes) {
+            if (attributes == null) {
+                throw new ArgumentNullException("attributes");
+            }
+
+            if (attributes.ContainsKey(DefaultCategoryAttributeName)) {
+                this.defaultCategory = attributes[DefaultCategoryAttributeName];
             }
         }
 
@@ -120,14 +125,13 @@ namespace Abc.Diagnostics {
             // Do nothing
         }
 
-#region BuildTraceRecord
+        #region BuildTraceRecord
         internal static XPathNavigator BuildTraceRecord(string message, int priority, TraceEventType severity, string title, IDictionary<string, object> properties, Exception exception) {
             const string TraceRecordNamespaceURI = "http://schemas.microsoft.com/2004/10/E2ETraceEvent/TraceRecord";
             const string DictionaryTraceRecordNamespaceURI = "http://schemas.microsoft.com/2006/08/ServiceModel/DictionaryTraceRecord";
 
 #if !NETSTANDARD
-            XmlDocument doc = new XmlDocument();
-            XPathNavigator navigator = doc.CreateNavigator();
+            XPathNavigator navigator = new XmlDocument().CreateNavigator();
 #else
             XPathNavigator navigator = new XPathDocument(new System.IO.MemoryStream(2048)).CreateNavigator();
 #endif
@@ -248,7 +252,7 @@ namespace Abc.Diagnostics {
                 writer.WriteEndElement();
             }
         }
-#endregion
+        #endregion
 
         private static bool HasTraceListeners(TraceSource traceSource) {
             foreach (var item in traceSource.Listeners) {
@@ -260,6 +264,24 @@ namespace Abc.Diagnostics {
             }
 
             return false;
+        }
+
+        private void Write(string message, string category, int priority, int eventId, TraceEventType severity, string title, IDictionary<string, object> properties, Exception exception, Guid? relatedActivityId) {
+            TraceSource ts = new TraceSource(category);
+            if (category != this.defaultCategory && !HasTraceListeners(ts)) {
+                ts = new TraceSource(SR.TraceAsTraceSource);
+            }
+
+#if !NETSTANDARD
+            if (severity == TraceEventType.Transfer && relatedActivityId.HasValue) {
+                ts.TraceTransfer(eventId, message, relatedActivityId.Value);
+            }
+            else {
+#else
+            {
+#endif
+                ts.TraceData(severity, eventId, BuildTraceRecord(message, priority, severity, title, properties, exception));
+            }
         }
     }
 }

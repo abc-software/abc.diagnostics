@@ -48,6 +48,9 @@ namespace Diagnostic.UnitTests
         public void MyTestInitialize() {
             AppDomain.CurrentDomain.SetData("APPBASE", Environment.CurrentDirectory);
             MockTraceListener.Reset();
+
+            LogUtility.Reset();
+            LogUtility.SetLogWriter(new TestLogWriterProxy());
         }
 
         [TestCleanup()]

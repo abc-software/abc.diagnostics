@@ -55,6 +55,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbcDiagnosticsProxyTraceLisener.cs" />
     <Compile Include="IExceptionUtility.cs" />
     <Compile Include="IExceptionUtiltyExtension.cs" />
     <Compile Include="ILogUtility.cs" />

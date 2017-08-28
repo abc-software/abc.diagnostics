@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbcDiagnosticsProxyTraceLisener.cs" />
     <Compile Include="Activity.cs" />
     <None Include="Class Diagrams\Diagnostic.cd" />
     <None Include="Class Diagrams\LogActivity.cd" />

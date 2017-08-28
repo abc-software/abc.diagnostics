@@ -28,6 +28,7 @@ namespace Abc.Diagnostics {
     using System.Globalization;
     using System.IO;
     using System.Reflection;
+    using System.Xml.XPath;
 
     /// <summary>
     /// Proxy class for Enterprise Library LogWriter class.
@@ -116,6 +117,15 @@ namespace Abc.Diagnostics {
                     exceptionProvider.PopulateDictionary(properties);
                 }
 
+                XPathNavigator navigator = null;
+                if (properties != null && properties.ContainsKey("XPathNavigator")) {
+                    navigator = properties["XPathNavigator"] as XPathNavigator;
+                }
+
+                if (navigator == null && (properties != null || exception != null)) {
+                    navigator = DefaultLogWriter.BuildTraceRecord(message, priority, severity, title, properties, exception);
+                }
+
                 ////
                 //// Microsoft.Practices.EnterpriseLibrary.Logging.XmlLogEntry log = new Microsoft.Practices.EnterpriseLibrary.Logging.XmlLogEntry();
                 //// log.Message = message;
@@ -127,7 +137,7 @@ namespace Abc.Diagnostics {
                 //// log.ExtendedProperties = properties;
                 //// log.ActivityId = activityId;
                 //// log.RelatedActivityId = relatedActivityId;
-                //// log.Xml = DefaultLogWriter.BuildTraceRecord(message, priority, severity, title, properties, exception);
+                //// log.Xml = navigator;
                 ////
                 Type logEntryType = this.loggingAssembly.GetType("Microsoft.Practices.EnterpriseLibrary.Logging.XmlLogEntry");
                 object logEntry = Activator.CreateInstance(logEntryType);
@@ -140,7 +150,7 @@ namespace Abc.Diagnostics {
                 logEntryType.GetProperty("ExtendedProperties").SetValue(logEntry, properties, new object[0]);
                 logEntryType.GetProperty("ActivityId").SetValue(logEntry, activityId, new object[0]);
                 logEntryType.GetProperty("RelatedActivityId").SetValue(logEntry, relatedActivityId, new object[0]);
-                logEntryType.GetProperty("Xml").SetValue(logEntry, DefaultLogWriter.BuildTraceRecord(message, priority, severity, title, properties, exception), new object[0]); 
+                logEntryType.GetProperty("Xml").SetValue(logEntry, navigator, new object[0]);
 
                 //// 
                 //// this.logWriter.Write(log); 

@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbcDiagnosticsProxyTraceLisener.cs" />
     <Compile Include="Activity.cs" />
     <None Include="Abc.Diagnostics.45.ruleset">
       <SubType>Designer</SubType>

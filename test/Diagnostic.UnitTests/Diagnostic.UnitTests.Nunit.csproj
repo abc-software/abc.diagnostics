@@ -117,6 +117,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbcDiagnosticsProxyTraceLisenerFixture.cs" />
     <Compile Include="ConfigurationFixture.cs" />
     <Compile Include="DefaultLogWriterFixture.cs" />
     <Compile Include="TestLogWriterCustomFactory.cs" />
