@@ -45,14 +45,17 @@
 <li><p>Recompile project</p>
 </li>
 </ul>
-<h3 id="configuration-for-development-environment">Configuration for development environment</h3>
+<h3 id="configuration-for-development-and-test-environment">Configuration for development and test environment</h3>
+<h4 id="configuration-using-system.diagnostics">Configuration using system.diagnostics</h4>
 <p>Configure sections in application configuration file</p>
 <pre><code class="language-xml">&lt;configSections&gt;
     &lt;section name=&quot;diagnosticConfiguration&quot; type=&quot;Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0&quot;/&gt;
 &lt;/configSections&gt;
 </code></pre>
+<p>Use <em>Abc.Diagnostics.DefaultLogWriter</em> to write in XML format</p>
 <pre><code class="language-xml">&lt;diagnosticConfiguration type=&quot;Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics&quot; defaultCategory=&quot;category&quot; /&gt;
 </code></pre>
+<p>Use <em>System.Diagnostics.XmlWriterTraceListener</em> to write to a file</p>
 <pre><code class="language-xml">&lt;system.diagnostics&gt;
     &lt;sources&gt;
         &lt;source name=&quot;category&quot; switchValue=&quot;All&quot;&gt;
@@ -63,7 +66,7 @@
     &lt;/sources&gt;
 &lt;/system.diagnostics&gt;
 </code></pre>
-<h3 id="configuration-using-microsoft-enterprise-library">Configuration using Microsoft enterprise library</h3>
+<h4 id="configuration-using-microsoft-enterprise-library">Configuration using Microsoft enterprise library</h4>
 <p>Configure sections in application configuration file</p>
 <pre><code class="language-xml">&lt;configSections&gt;
     &lt;section name=&quot;diagnosticConfiguration&quot; type=&quot;Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0&quot;/&gt;
@@ -71,8 +74,7 @@
     &lt;section name=&quot;dataConfiguration&quot; type=&quot;Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings, Microsoft.Practices.EnterpriseLibrary.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35&quot;/&gt;
 &lt;/configSections&gt;
 </code></pre>
-<pre><code class="language-xml">&lt;diagnosticConfiguration type=&quot;Abc.Diagnostics.EntrLib40LogWriter, Abc.Diagnostics&quot;/&gt;
-</code></pre>
+<p>Use log writer according table below</p>
 <table>
 <thead>
 <tr>
@@ -99,6 +101,10 @@
 </tr>
 </tbody>
 </table>
+<pre><code class="language-xml">&lt;diagnosticConfiguration type=&quot;Abc.Diagnostics.EntrLib40LogWriter, Abc.Diagnostics&quot;/&gt;
+</code></pre>
+<p>Configure microsoft Enterprise Library logging section.
+Use <em>Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceListener</em> to write to a file</p>
 <pre><code class="language-xml">&lt;loggingConfiguration name=&quot;Logging Application Block&quot; defaultCategory=&quot;category&quot;&gt;
     &lt;listeners&gt;
       &lt;add name=&quot;listener&quot; type=&quot;Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceListener, Microsoft.Practices.EnterpriseLibrary.Logging&quot;/&gt;

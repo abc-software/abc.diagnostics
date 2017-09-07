@@ -43,7 +43,9 @@ Nuget package *Abc.Diagnostics.dll* splitted to two packages
 
 - Recompile project
 
-### Configuration for development environment
+### Configuration for development and test environment
+
+#### Configuration using system.diagnostics
 
 Configure sections in application configuration file
 
@@ -53,9 +55,13 @@ Configure sections in application configuration file
 </configSections>
 ```
 
+Use _Abc.Diagnostics.DefaultLogWriter_ to write in XML format
+
 ```xml
 <diagnosticConfiguration type="Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics" defaultCategory="category" />
 ```
+
+Use _System.Diagnostics.XmlWriterTraceListener_ to write to a file
 
 ```xml
 <system.diagnostics>
@@ -69,7 +75,7 @@ Configure sections in application configuration file
 </system.diagnostics>
 ```
 
-### Configuration using Microsoft enterprise library
+#### Configuration using Microsoft enterprise library
 
 Configure sections in application configuration file
 
@@ -81,9 +87,7 @@ Configure sections in application configuration file
 </configSections>
 ```
 
-```xml
-<diagnosticConfiguration type="Abc.Diagnostics.EntrLib40LogWriter, Abc.Diagnostics"/>
-```
+Use log writer according table below
 
 | EntrLib version | type |
 | --------------- |:-----|
@@ -91,6 +95,14 @@ Configure sections in application configuration file
 | V4.0 | Abc.Diagnostics.EntrLib40LogWriter |
 | V5.0, V5.0 Upd 1 | Abc.Diagnostics.EntrLib50LogWriter |
 | V6.0 | Abc.Diagnostics.EntrLib60LogWriter |
+
+
+```xml
+<diagnosticConfiguration type="Abc.Diagnostics.EntrLib40LogWriter, Abc.Diagnostics"/>
+```
+
+Configure microsoft Enterprise Library logging section. 
+Use _Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceListener_ to write to a file
 
 ```xml
 <loggingConfiguration name="Logging Application Block" defaultCategory="category">
