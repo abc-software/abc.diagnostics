@@ -21,7 +21,7 @@ Configure sections in application configuration file
 ### Nuget package changes
 
 Nuget package *Abc.Diagnostics.dll* splitted to two packages
-    *Abc.Diagnostics V1.0* for net20, net35 and *Abc.Diagnostics V1.2* for net4.5, netstandart16.
+    *Abc.Diagnostics V1.0* for net20, net35 and *Abc.Diagnostics V1.2* for net4.5, netstandart16, netstandart2.
 
 #### Retarget .NET20, .NET3.0, .NET3.5, .NET4.0 project to Abc.Diagnostics V1.0
 
@@ -118,4 +118,45 @@ Use _Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceListen
       </add>
     </categorySources>
 </loggingConfiguration>
+```
+
+#### Configuration multiple destinations
+
+Configure sections in application configuration file
+
+```xml
+<configSections>
+    <section name="diagnosticConfiguration" type="Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0"/>
+</configSections>
+```
+
+Use _Abc.Diagnostics.RoutedLogWriter_ to write in different formats.
+Events with **Kdvvdb** category writes using _Viss.Diagnostics.VissLogWriter_, others events writes using _Abc.Diagnostics.DefaultLogWriter_
+
+```xml
+<diagnosticConfiguration type="Abc.Diagnostics.RoutedLogWriter, Abc.Diagnostics" defaultCategory="category">
+    <filters>
+        <fileter categories="Kdvvdb" type="Viss.Diagnostics.VissLogWriter, Viss.Diagnostics" />
+        <fileter categories="*" type="Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics" />
+    </filters>
+</diagnosticConfiguration>
+```
+
+Use _System.Diagnostics.XmlWriterTraceListener_ to write to a file and use _Viss.Diagnostics.KdvvdbTraceListener_ to write to a MassTransit
+
+```xml
+<system.diagnostics>
+    <sources>
+        <source name="category" switchValue="All">
+            <listeners>
+                <add name="listener" initializeData="trace.svclog" type="System.Diagnostics.XmlWriterTraceListener, System.Diagnostics" />
+            </listeners> 
+        </source>
+      <source name="Kdvvdb" switchValue="All">
+        <listeners>
+          <add name="{$name}" type="Viss.Diagnostics.KdvvdbTraceListener, Viss.Diagnostics" initializeData="rabbitmq://{$host}/{$path}" username="{$username}" password="{$password}" />
+        </listeners>
+      </source>
+    </sources>
+</system.diagnostics>
 ```

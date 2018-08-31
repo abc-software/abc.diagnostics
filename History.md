@@ -4,10 +4,12 @@ FUTURE:	NLog
 FUTURE:	CommonLogging
 ...
 
+V1.2.1
+* Добавлися RoutedLogWriter, что позволить использовать одновременно несколько ILogWriters
+
 V1.2.0
 * Перешли на лицензию LGPL V3.0
-* Поддержка netstandart
-* Добавился проект для создания NuGet пакета
+* Поддержка netstandard
 * Добавлись интерфейсы ILogUtility, IExceptionUtility. Все методы как рассширение интерфейсов.
 
 V1.1.0.1/1.0.0.9 

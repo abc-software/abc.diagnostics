@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70DC966B-5903-4772-B76A-F6AFFEE1E018}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,10 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostic.Lab", "samples\D
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Diagnostic.Setup", "src\Diagnostic.Setup\Diagnostic.Setup.wixproj", "{DF186A5F-434C-4CDF-A8C1-69446BC8642C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.45", "src\Diagnostic\Abc.Diagnostics.45.csproj", "{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}"
-EndProject
-Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "Abc.Diagnostics.NuGet", "src\Diagnostic.NuGet\Abc.Diagnostics.NuGet.nuproj", "{6B5D7721-8CE8-4796-9B11-E2F1F12A0929}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{2B86F97A-1C5B-4D18-9191-7FB0B7EDA642}"
 	ProjectSection(SolutionItems) = preProject
 		SonarQube\Abc.Diagnostics_DEVCSharp.ruleset = SonarQube\Abc.Diagnostics_DEVCSharp.ruleset
@@ -31,9 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.35", "src\Diagnostic\Abc.Diagnostics.35.csproj", "{9258CEC4-ADB4-40DD-B70C-4966B9470889}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.16", "src\Diagnostic\Abc.Diagnostics.16.csproj", "{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}"
-EndProject
 Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "Diagnostic.v10.NuGet", "src\Diagnostic.v10.NuGet\Diagnostic.v10.NuGet.nuproj", "{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Diagnostics", "src\Abc.Diagnostics\Abc.Diagnostics.csproj", "{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,27 +51,24 @@ Global
 		{2478FA64-0D5B-4465-842B-82888AD45FD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF186A5F-434C-4CDF-A8C1-69446BC8642C}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{DF186A5F-434C-4CDF-A8C1-69446BC8642C}.Release|Any CPU.ActiveCfg = Release|x86
-		{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B48A3A9-D8BF-4F7D-9D95-7F98C9DB8530}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B5D7721-8CE8-4796-9B11-E2F1F12A0929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B5D7721-8CE8-4796-9B11-E2F1F12A0929}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B5D7721-8CE8-4796-9B11-E2F1F12A0929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Release|Any CPU.Build.0 = Release|Any CPU
-		{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{949FA0FE-AA09-4EE8-A3B3-A4B3694D7376}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BDC0E14-FD7B-4164-9A2D-B58C80455D16}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Diagnostic.vsmdi

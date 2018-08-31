@@ -42,7 +42,7 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual(settings.TypeName.Length, 0);
             Assert.AreEqual(settings.InitData.Length, 0);
             
-            object writer = settings.CreateLogWriter();
+            object writer = Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings);
             Assert.IsTrue(typeof(ILogWriter).IsAssignableFrom(writer.GetType()));
         }
 
@@ -53,7 +53,7 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual(typeName, Configuration.DiagnosticSettings.Current.TypeName);
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
-            object writer = settings.CreateLogWriter();
+            object writer = Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings);
             Assert.AreEqual(writer.GetType(), typeof(TestLogWriterProxy));
         }
 
@@ -68,7 +68,7 @@ namespace Diagnostic.UnitTests {
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
 #if NUNIT
-            Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+            Assert.Throws<ConfigurationErrorsException>(() => Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings));
 #endif
         }
 
@@ -82,7 +82,7 @@ namespace Diagnostic.UnitTests {
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
 #if NUNIT
-            Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+            Assert.Throws<ConfigurationErrorsException>(() => Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings));
 #endif
         }
 
@@ -96,7 +96,7 @@ namespace Diagnostic.UnitTests {
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
 #if NUNIT
-            Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+            Assert.Throws<ConfigurationErrorsException>(() => Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings));
 #endif
         }
 
@@ -111,7 +111,7 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual(initializeData, Configuration.DiagnosticSettings.Current.InitData);
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
-            object writer = settings.CreateLogWriter();
+            object writer = Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings);
             Assert.AreEqual(writer.GetType(), typeof(TestLogWriterProxy));
             Assert.AreEqual((writer as TestLogWriterProxy).InitData, initializeData);
             Assert.AreEqual((writer as TestLogWriterProxy).SourceName, "bar");
@@ -128,7 +128,7 @@ namespace Diagnostic.UnitTests {
 
             Configuration.DiagnosticSettings settings = Configuration.DiagnosticSettings.Current;
 #if NUNIT
-            Assert.Throws<ConfigurationErrorsException>(() => settings.CreateLogWriter());
+            Assert.Throws<ConfigurationErrorsException>(() => Diagnostic.Configuration.LogWriterFactory.CreteLogWriter(settings));
 #endif
         }
 

@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ABC software")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright © ABC software 2008-2017")]
+[assembly: AssemblyCopyright("Copyright © ABC software 2008-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -44,12 +44,12 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 #if NET20 || NET30 || NET35 || NET40
 [assembly: AssemblyVersion("1.0")]
-[assembly: AssemblyFileVersion("1.0.0.13")]
-[assembly: AssemblyInformationalVersion("1.0.13")]
+[assembly: AssemblyFileVersion("1.0.0.14")]
+[assembly: AssemblyInformationalVersion("1.0.14")]
 #else
 [assembly: AssemblyVersion("1.2")]
-[assembly: AssemblyFileVersion("1.2.0.0")]
-[assembly: AssemblyInformationalVersion("1.2.0-rc1")]
+[assembly: AssemblyFileVersion("1.2.0.1")]
+[assembly: AssemblyInformationalVersion("1.2.1")]
 #endif
 
 [assembly: CLSCompliant(true)] 

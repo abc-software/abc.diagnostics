@@ -18,7 +18,7 @@
 </code></pre>
 <h3 id="nuget-package-changes">Nuget package changes</h3>
 <p>Nuget package <em>Abc.Diagnostics.dll</em> splitted to two packages
-<em>Abc.Diagnostics V1.0</em> for net20, net35 and <em>Abc.Diagnostics V1.2</em> for net4.5, netstandart16.</p>
+<em>Abc.Diagnostics V1.0</em> for net20, net35 and <em>Abc.Diagnostics V1.2</em> for net4.5, netstandart16, netstandart2.</p>
 <h4 id="retarget.net20.net3.0.net3.5.net4.0-project-to-abc.diagnostics-v1.0">Retarget .NET20, .NET3.0, .NET3.5, .NET4.0 project to Abc.Diagnostics V1.0</h4>
 <ul>
 <li><p>Type the following commands into the Package Manager Console:</p>
@@ -118,6 +118,37 @@ Use <em>Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceLis
       &lt;/add&gt;
     &lt;/categorySources&gt;
 &lt;/loggingConfiguration&gt;
+</code></pre>
+<h4 id="configuration-multiple-destinations">Configuration multiple destinations</h4>
+<p>Configure sections in application configuration file</p>
+<pre><code class="language-xml">&lt;configSections&gt;
+    &lt;section name=&quot;diagnosticConfiguration&quot; type=&quot;Abc.Diagnostics.Configuration.DiagnosticSettings, Abc.Diagnostics, Version=1.2.0.0&quot;/&gt;
+&lt;/configSections&gt;
+</code></pre>
+<p>Use <em>Abc.Diagnostics.RoutedLogWriter</em> to write in different formats.
+Events with <strong>Kdvvdb</strong> category writes using <em>Viss.Diagnostics.VissLogWriter</em>, others events writes using <em>Abc.Diagnostics.DefaultLogWriter</em></p>
+<pre><code class="language-xml">&lt;diagnosticConfiguration type=&quot;Abc.Diagnostics.RoutedLogWriter, Abc.Diagnostics&quot; defaultCategory=&quot;category&quot;&gt;
+    &lt;filters&gt;
+        &lt;fileter categories=&quot;Kdvvdb&quot; type=&quot;Viss.Diagnostics.VissLogWriter, Viss.Diagnostics&quot; /&gt;
+        &lt;fileter categories=&quot;*&quot; type=&quot;Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics&quot; /&gt;
+    &lt;/filters&gt;
+&lt;/diagnosticConfiguration&gt;
+</code></pre>
+<p>Use <em>System.Diagnostics.XmlWriterTraceListener</em> to write to a file and use <em>Viss.Diagnostics.KdvvdbTraceListener</em> to write to a MassTransit</p>
+<pre><code class="language-xml">&lt;system.diagnostics&gt;
+    &lt;sources&gt;
+        &lt;source name=&quot;category&quot; switchValue=&quot;All&quot;&gt;
+            &lt;listeners&gt;
+                &lt;add name=&quot;listener&quot; initializeData=&quot;trace.svclog&quot; type=&quot;System.Diagnostics.XmlWriterTraceListener, System.Diagnostics&quot; /&gt;
+            &lt;/listeners&gt; 
+        &lt;/source&gt;
+      &lt;source name=&quot;Kdvvdb&quot; switchValue=&quot;All&quot;&gt;
+        &lt;listeners&gt;
+          &lt;add name=&quot;{$name}&quot; type=&quot;Viss.Diagnostics.KdvvdbTraceListener, Viss.Diagnostics&quot; initializeData=&quot;rabbitmq://{$host}/{$path}&quot; username=&quot;{$username}&quot; password=&quot;{$password}&quot; /&gt;
+        &lt;/listeners&gt;
+      &lt;/source&gt;
+    &lt;/sources&gt;
+&lt;/system.diagnostics&gt;
 </code></pre>
 
 
