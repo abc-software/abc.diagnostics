@@ -55,17 +55,20 @@
     <Folder Include="Bitmaps" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Diagnostic\Diagnostic.csproj">
-      <Name>Diagnostic</Name>
-      <Project>{202129af-4956-444b-a0b8-0bf7d018696a}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WixLibrary Include="WixExtension">
       <HintPath>\\Dev\Internal\IvisConfigFileInstaller\WixExtension.wixlib</HintPath>
       <Name>WixExtension</Name>
     </WixLibrary>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Abc.Diagnostics.v10\Abc.Diagnostics.v10.csproj">
+      <Name>Abc.Diagnostics.v10</Name>
+      <Project>{a1fc5f19-07d3-4c5b-9667-3b85cd98f6d1}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

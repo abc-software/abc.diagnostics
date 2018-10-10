@@ -136,8 +136,8 @@ Events with **Kdvvdb** category writes using _Viss.Diagnostics.VissLogWriter_, o
 ```xml
 <diagnosticConfiguration type="Abc.Diagnostics.RoutedLogWriter, Abc.Diagnostics" defaultCategory="category">
     <filters>
-        <fileter categories="Kdvvdb" type="Viss.Diagnostics.VissLogWriter, Viss.Diagnostics" />
-        <fileter categories="*" type="Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics" />
+        <filter categories="Kdvvdb" type="Viss.Diagnostics.VissLogWriter, Viss.Diagnostics" />
+        <fieter categories="*" type="Abc.Diagnostics.DefaultLogWriter, Abc.Diagnostics" />
     </filters>
 </diagnosticConfiguration>
 ```

@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net20;net35</TargetFrameworks>
+    <RootNamespace>Diagnostic</RootNamespace>
+    <PackageId>Abc.Diagnostics</PackageId>
+    <Version>1.0.15</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.15</FileVersion>
+    <Authors>ABC software</Authors>
+    <Product>Abc.Diagnostics</Product>
+    <Copyright>Copyright © ABC software 2008-2018</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyName>Diagnostic</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\eves.snk</AssemblyOriginatorKeyFile>
+    <DocumentationFile>obj\Diagnostic.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Abc.Diagnostics\AbcDiagnosticsProxyTraceLisener.cs" Link="AbcDiagnosticsProxyTraceLisener.cs" />
+    <Compile Include="..\Abc.Diagnostics\Activity.cs" Link="Activity.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\ConfigSR.Designer.cs" Link="Configuration\ConfigSR.Designer.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\ConfigurationSectionLoader.cs" Link="Configuration\ConfigurationSectionLoader.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\DiagnosticInstaller.cs" Link="Configuration\DiagnosticInstaller.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\DiagnosticSettings.cs" Link="Configuration\DiagnosticSettings.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\FilterElement.cs" Link="Configuration\FilterElement.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\FilterElementCollection.cs" Link="Configuration\FilterElementCollection.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\ILogWriterConfigration.cs" Link="Configuration\ILogWriterConfigration.cs" />
+    <Compile Include="..\Abc.Diagnostics\Configuration\LogWriterFactory.cs" Link="Configuration\LogWriterFactory.cs" />
+    <Compile Include="..\Abc.Diagnostics\DefaultLogWriter.cs" Link="DefaultLogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\DiagnosticTools.cs" Link="DiagnosticTools.cs" />
+    <Compile Include="..\Abc.Diagnostics\EntrLib31LogWriter.cs" Link="EntrLib31LogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\EntrLib40LogWriter.cs" Link="EntrLib40LogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\EntrLib41LogWriter.cs" Link="EntrLib41LogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\EntrLib50LogWriter.cs" Link="EntrLib50LogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\EntrLibLogWriter.cs" Link="EntrLibLogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\ExceptionUtility.cs" Link="ExceptionUtility.cs" />
+    <Compile Include="..\Abc.Diagnostics\ExtensionAttribute.cs" Link="ExtensionAttribute.cs" />
+    <Compile Include="..\Abc.Diagnostics\ExtraInformation\DebugInformationProvider.cs" Link="ExtraInformation\DebugInformationProvider.cs" />
+    <Compile Include="..\Abc.Diagnostics\ExtraInformation\IExtraInformationProvider.cs" Link="ExtraInformation\IExtraInformationProvider.cs" />
+    <Compile Include="..\Abc.Diagnostics\ExtraInformation\IStackTraceUtility.cs" Link="ExtraInformation\IStackTraceUtility.cs" />
+    <Compile Include="..\Abc.Diagnostics\ExtraInformation\ManagedSecurityContextInformationProvider.cs" Link="ExtraInformation\ManagedSecurityContextInformationProvider.cs" />
+    <Compile Include="..\Abc.Diagnostics\FatalException.cs" Link="FatalException.cs" />
+    <Compile Include="..\Abc.Diagnostics\GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+    <Compile Include="..\Abc.Diagnostics\IExceptionUtility.cs" Link="IExceptionUtility.cs" />
+    <Compile Include="..\Abc.Diagnostics\ILogSource.cs" Link="ILogSource.cs" />
+    <Compile Include="..\Abc.Diagnostics\ILogUtility.cs" Link="ILogUtility.cs" />
+    <Compile Include="..\Abc.Diagnostics\ILogWriter.cs" Link="ILogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\ILogWriterCustomAttributes.cs" Link="ILogWriterCustomAttributes.cs" />
+    <Compile Include="..\Abc.Diagnostics\InternalsVisibleTo.cs" Link="InternalsVisibleTo.cs" />
+    <Compile Include="..\Abc.Diagnostics\LogActivity.cs" Link="LogActivity.cs" />
+    <Compile Include="..\Abc.Diagnostics\LogUtility.cs" Link="LogUtility.cs" />
+    <Compile Include="..\Abc.Diagnostics\RoutedLogWriter.cs" Link="RoutedLogWriter.cs" />
+    <Compile Include="..\Abc.Diagnostics\SR.Designer.cs" Link="SR.Designer.cs" />
+    <Compile Include="..\Abc.Diagnostics\TraceUtility.cs" Link="TraceUtility.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Abc.Diagnostics\Configuration\ConfigSR.resx" Link="Configuration\ConfigSR.resx" />
+    <EmbeddedResource Include="..\Abc.Diagnostics\SR.resx" Link="SR.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="ExtraInformation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+  </ItemGroup>
+
+</Project>

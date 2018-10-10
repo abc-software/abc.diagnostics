@@ -31,7 +31,7 @@ namespace Abc.Diagnostics {
     /// <summary>
     /// Represent tracing utility.
     /// </summary>
-    public class LogUtility : ILogUtility {
+    public partial class LogUtility : ILogUtility {
         /// <summary>
         /// Category name for logging exception.
         /// </summary>

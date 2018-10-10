@@ -113,12 +113,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Diagnostic\Diagnostic.csproj">
-      <Project>{202129AF-4956-444B-A0B8-0BF7D018696A}</Project>
-      <Name>Diagnostic</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -139,6 +133,12 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\Google.Protobuf.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.5.11.0.1761\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Abc.Diagnostics.v10\Abc.Diagnostics.v10.csproj">
+      <Project>{a1fc5f19-07d3-4c5b-9667-3b85cd98f6d1}</Project>
+      <Name>Abc.Diagnostics.v10</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -161,9 +161,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Diagnostic\Abc.Diagnostics.35.csproj">
-      <Project>{9258cec4-adb4-40dd-b70c-4966b9470889}</Project>
-      <Name>Abc.Diagnostics.35</Name>
+    <ProjectReference Include="..\..\src\Abc.Diagnostics.v10\Abc.Diagnostics.v10.csproj">
+      <Project>{a1fc5f19-07d3-4c5b-9667-3b85cd98f6d1}</Project>
+      <Name>Abc.Diagnostics.v10</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

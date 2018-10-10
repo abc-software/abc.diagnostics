@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostic", "src\Diagnostic\Diagnostic.csproj", "{202129AF-4956-444B-A0B8-0BF7D018696A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostic.UnitTests.Nunit", "test\Diagnostic.UnitTests\Diagnostic.UnitTests.Nunit.csproj", "{C43B1424-E516-430E-A51B-3D678B2B7FF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagnostic.Lab", "samples\Diagnostic.Lab\Diagnostic.Lab.csproj", "{2478FA64-0D5B-4465-842B-82888AD45FD6}"
@@ -25,11 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.35", "src\Diagnostic\Abc.Diagnostics.35.csproj", "{9258CEC4-ADB4-40DD-B70C-4966B9470889}"
-EndProject
-Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "Diagnostic.v10.NuGet", "src\Diagnostic.v10.NuGet\Diagnostic.v10.NuGet.nuproj", "{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Diagnostics", "src\Abc.Diagnostics\Abc.Diagnostics.csproj", "{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.v10", "src\Abc.Diagnostics.v10\Abc.Diagnostics.v10.csproj", "{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +33,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{202129AF-4956-444B-A0B8-0BF7D018696A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{202129AF-4956-444B-A0B8-0BF7D018696A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{202129AF-4956-444B-A0B8-0BF7D018696A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{202129AF-4956-444B-A0B8-0BF7D018696A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C43B1424-E516-430E-A51B-3D678B2B7FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C43B1424-E516-430E-A51B-3D678B2B7FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43B1424-E516-430E-A51B-3D678B2B7FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,18 +43,14 @@ Global
 		{2478FA64-0D5B-4465-842B-82888AD45FD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF186A5F-434C-4CDF-A8C1-69446BC8642C}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{DF186A5F-434C-4CDF-A8C1-69446BC8642C}.Release|Any CPU.ActiveCfg = Release|x86
-		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9258CEC4-ADB4-40DD-B70C-4966B9470889}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FBD2BDA-3AAA-4FA3-8F4E-F07E439C0C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

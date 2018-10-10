@@ -30,7 +30,7 @@ namespace Abc.Diagnostics {
     /// <summary>
     /// Represent exception utility
     /// </summary>
-    public class ExceptionUtility : IExceptionUtility {
+    public partial class ExceptionUtility : IExceptionUtility {
         #region Fields
         [ThreadStatic]
         private static Guid activityId;
