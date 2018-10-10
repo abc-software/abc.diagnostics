@@ -7,9 +7,9 @@
     <Authors>ABC software</Authors>
     <Company>ABC software</Company>
     <Product></Product>
-    <Version>1.2.1</Version>
+    <Version>1.2.2</Version>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.1</FileVersion>
+    <FileVersion>1.2.0.2</FileVersion>
     <Copyright>Copyright © ABC software 2008-2018</Copyright>
     <CodeAnalysisRuleSet>Abc.Diagnostics.ruleset</CodeAnalysisRuleSet>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

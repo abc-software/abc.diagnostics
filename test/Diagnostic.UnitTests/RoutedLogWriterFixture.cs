@@ -127,6 +127,56 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual(1, RouterLogWriterMock2.Entries[0].Categories.Count);
             Assert.AreEqual("B", RouterLogWriterMock2.Entries[0].Categories.First());
         }
+
+
+        [TestMethod()]
+        public void TestWrite2() {
+            RoutedLogWriter logWriter = new RoutedLogWriter();
+            var filters = new Configuration.FilterElementCollection() {
+                    new Configuration.FilterElement() {
+                        Categories = new System.Configuration.CommaDelimitedStringCollection() { "MockCategoryOne" },
+                        TypeName = "Diagnostic.UnitTests.RouterLogWriterMock0, Diagnostic.UnitTests"
+                    },
+                    new Configuration.FilterElement() {
+                        Categories = new System.Configuration.CommaDelimitedStringCollection() { "B", "*" },
+                        TypeName = "Diagnostic.UnitTests.RouterLogWriterMock1, Diagnostic.UnitTests"
+                    },
+                    new Configuration.FilterElement() {
+                        Categories = new System.Configuration.CommaDelimitedStringCollection() { "MockCategoryOne", "B" },
+                        TypeName = "Diagnostic.UnitTests.RouterLogWriterMock2, Diagnostic.UnitTests"
+                    }
+                };
+
+            logWriter.SetFilters(filters);
+
+            logWriter.Write("bar0", categories, priority, eventId, severity, title, null, null, activityId, null);
+            logWriter.Write("bar1", new string[] { "A" }, priority, eventId, severity, title, null, null, activityId, null);
+            logWriter.Write("bar2", new string[] { "B", "C" }, priority, eventId, severity, title, null, null, activityId, null);
+            logWriter.Write("bar3", (string)null, priority, eventId, severity, title, null, null, activityId, null);
+
+            {
+                var e = RouterLogWriterMock0.Entries;
+                Assert.AreEqual(1, e.Count);
+                Assert.AreEqual(1, e[0].Categories.Count);
+                Assert.AreEqual("MockCategoryOne", e[0].Categories.First());
+            }
+
+            {
+                var e = RouterLogWriterMock1.Entries;
+                Assert.AreEqual(4, e.Count);
+                Assert.AreEqual("A", e[0].Categories.First());
+                Assert.AreEqual("B", e[1].Categories.First());
+                Assert.AreEqual("C", e[2].Categories.First());
+                Assert.AreEqual(null, e[3].Categories.First());
+            }
+
+            {
+                var e = RouterLogWriterMock2.Entries;
+                Assert.AreEqual(2, e.Count);
+                Assert.AreEqual("MockCategoryOne", e[0].Categories.First());
+                Assert.AreEqual("B", e[1].Categories.First());
+            }
+        }
     }
 
     public class RouterLogWriterMock0 : ILogWriter {

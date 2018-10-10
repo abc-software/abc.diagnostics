@@ -26,9 +26,6 @@ namespace Abc.Diagnostics {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-#if !(NET20 || NET30)
-    using System.Linq;
-#endif
 
     /// <summary>
     /// Routed log writer
@@ -53,9 +50,6 @@ namespace Abc.Diagnostics {
         /// </value>
         public bool IsLoggingEnabled {
             get {
-#if !(NET20 || NET30)
-                return this.logWriters.Values.Any(x => x.IsLoggingEnabled);
-#else
                 foreach (var item in this.logWriters.Values) {
                     if (item.IsLoggingEnabled) {
                         return true;
@@ -63,7 +57,6 @@ namespace Abc.Diagnostics {
                 }
 
                 return false;
-#endif
             }
         }
 
@@ -75,9 +68,6 @@ namespace Abc.Diagnostics {
         /// </value>
         public bool IsTracingEnabled {
             get {
-#if !(NET20 || NET30)
-                return this.logWriters.Values.Any(x => x.IsTracingEnabled);
-#else
                 foreach (var item in this.logWriters.Values) {
                     if (item.IsTracingEnabled) {
                         return true;
@@ -85,7 +75,6 @@ namespace Abc.Diagnostics {
                 }
 
                 return false;
-#endif
             }
         }
 
@@ -170,31 +159,22 @@ namespace Abc.Diagnostics {
             Guid activityId,
             Guid? relatedActivityId) {
 #pragma warning restore S107 // Methods should not have too many parameters
-#if !(NET20 || NET30)
-            var writer = this.logWriters.FirstOrDefault(x => x.Key.Contains(category, StringComparer.InvariantCultureIgnoreCase)).Value;
-            if (writer == null) {
-                writer = this.logWriters.FirstOrDefault(x => x.Key.Contains("*")).Value;
-            }
-#else
-            ILogWriter writer = null;
-            foreach(var item in this.logWriters) {
+            var writers = new List<ILogWriter>();
+            foreach (var item in this.logWriters) {
                 if (Array.IndexOf(item.Key, category) > -1) {
-                    writer = item.Value;
-                    break;
+                    writers.Add(item.Value);
                 }
             }
 
-            if (writer == null) {
+            if (writers.Count == 0) {
                 foreach (var item in this.logWriters) {
                     if (Array.IndexOf(item.Key, "*") > -1) {
-                        writer = item.Value;
-                        break;
+                        writers.Add(item.Value);
                     }
                 }
             }
-#endif
 
-            if (writer != null) {
+            foreach (var writer in writers) {
                 writer.Write(message, new string[] { category }, priority, eventId, severity, title, properties, exception, activityId, relatedActivityId);
             }
         }
@@ -205,12 +185,9 @@ namespace Abc.Diagnostics {
             }
 
             foreach (Configuration.FilterElement filter in filters) {
-#if !(NET20 || NET30)
-                var categories = filter.Categories.Cast<string>().ToArray();
-#else
                 var categories = new string[filter.Categories.Count];
                 filter.Categories.CopyTo(categories, 0);
-#endif
+
                 this.logWriters.Add(categories, Configuration.LogWriterFactory.CreteLogWriter(filter));
             }
         }
