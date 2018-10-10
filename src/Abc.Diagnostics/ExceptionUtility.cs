@@ -133,7 +133,7 @@ namespace Abc.Diagnostics {
         /// <param name="eventType">Type of the event.</param>
         /// <returns>The thrown exception.</returns>
         public Exception ThrowHelper(Exception exception, TraceEventType eventType) {
-            LogUtility.Write(SR.ThrowingException, new string[] { LogUtility.GeneralCategory }, LogUtility.DefaultPriority, LogUtility.DefaultEventId, eventType, LogUtility.LogSourceName, null, exception, useStaticActivityId ? activityId : Guid.Empty);
+            LogUtility.Write(SR.ThrowingException, LogUtility.EmptyCategoriesList, LogUtility.DefaultPriority, LogUtility.DefaultEventId, eventType, LogUtility.LogSourceName, null, exception, useStaticActivityId ? activityId : Guid.Empty);
             return exception;
         }
 
@@ -143,7 +143,7 @@ namespace Abc.Diagnostics {
         /// <param name="exception">The exception.</param>
         /// <param name="eventType">Type of the event.</param>
         public void TraceHandledException(Exception exception, TraceEventType eventType) {
-            LogUtility.Write(SR.TraceHandledException, new string[] { LogUtility.GeneralCategory }, LogUtility.DefaultPriority, LogUtility.DefaultEventId, eventType, LogUtility.LogSourceName, null, exception, useStaticActivityId ? activityId : Guid.Empty);
+            LogUtility.Write(SR.TraceHandledException, LogUtility.EmptyCategoriesList, LogUtility.DefaultPriority, LogUtility.DefaultEventId, eventType, LogUtility.LogSourceName, null, exception, useStaticActivityId ? activityId : Guid.Empty);
         }
 
 #endregion Methods

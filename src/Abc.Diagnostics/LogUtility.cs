@@ -42,6 +42,7 @@ namespace Abc.Diagnostics {
         /// </summary>
         public const string LogActivityCategory = "Activity";
 
+        internal static readonly ICollection<string> EmptyCategoriesList = new List<string>(0);
         internal const int DefaultPriority = -1;
         internal const int DefaultEventId = 0;
         private const string EventSourceName = "Abc.Diagnostics";
@@ -437,7 +438,7 @@ namespace Abc.Diagnostics {
 
                     currentDomain.UnhandledException += (sender, e) => {
                         Exception exception = (Exception)e.ExceptionObject;
-                        this.Write(SR.UnhandledException, GeneralCategory, DefaultPriority, DefaultEventId, TraceEventType.Critical, exception);
+                        this.Write(SR.UnhandledException, null, DefaultPriority, DefaultEventId, TraceEventType.Critical, exception);
                         this.ShutdownTracing();
                     };
 #elif NETSTANDARD1_5 || NETSTANDARD1_6
@@ -457,7 +458,7 @@ namespace Abc.Diagnostics {
         private void ShutdownTracing() {
             if (!this.calledShutdown) {
                 try {
-                    this.Write(SR.TraceCodeAppDomainUnload, GeneralCategory, DefaultPriority, DefaultEventId, TraceEventType.Information);
+                    this.Write(SR.TraceCodeAppDomainUnload, null, DefaultPriority, DefaultEventId, TraceEventType.Information);
 
                     this.calledShutdown = true;
                     LogUtility.Writer.Flush();

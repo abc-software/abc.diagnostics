@@ -1,6 +1,6 @@
-﻿// "----------------------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------
 // <copyright file="ILogUtilityExtension.cs" company="ABC Software Ltd">
-//    Copyright © 2016 ABC Software Ltd. All rights reserved.
+//    Copyright © 2018 ABC Software Ltd. All rights reserved.
 //
 //    This library is free software; you can redistribute it and/or.
 //    modify it under the terms of the GNU Lesser General Public
@@ -15,7 +15,7 @@
 //    You should have received a copy of the GNU Lesser General Public
 //    License along with the library. If not, see http://www.gnu.org/licenses/.
 // </copyright>
-// "----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 #if NET20 || NET30 || NET35 || NET40
 namespace Diagnostic {
@@ -32,12 +32,12 @@ namespace Abc.Diagnostics {
     public static class ILogUtilityExtension {
         internal const int DefaultPriority = -1;
         internal const int DefaultEventId = 0;
-        private static readonly ICollection<string> EmptyCategoriesList = new List<string>(0);
         private const TraceEventType DefaultSeverity = TraceEventType.Verbose;
         private const TraceEventType DefaultExceptionSeverity = TraceEventType.Error;
-        private const string EventSourceName = "Abc.Diagnostics";
+        private static readonly ICollection<string> EmptyCategoriesList = new List<string>(0);
 
         #region Write
+
         /// <overloads>
         /// Write a new log entry to the default category.
         /// </overloads>
@@ -139,6 +139,7 @@ namespace Abc.Diagnostics {
         #endregion
 
         #region Write with Properties
+
         /// <summary>
         /// Write a new log entry and a dictionary of extended properties.
         /// </summary>
@@ -255,6 +256,7 @@ namespace Abc.Diagnostics {
         #endregion
 
         #region Write with Exception
+
         /// <summary>
         /// Write a new log entry with a specific category, priority, event Id, severity
         /// title and dictionary of extended properties.

@@ -29,7 +29,6 @@ namespace Abc.Diagnostics {
     using System.Security;
 
     public partial class LogUtility {
-        private static readonly ICollection<string> EmptyCategoriesList = new List<string>(0);
         private const TraceEventType DefaultSeverity = TraceEventType.Verbose;
         private const TraceEventType DefaultExceptionSeverity = TraceEventType.Error;
 
