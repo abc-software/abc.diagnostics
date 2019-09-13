@@ -128,7 +128,6 @@ namespace Diagnostic.UnitTests {
             Assert.AreEqual("B", RouterLogWriterMock2.Entries[0].Categories.First());
         }
 
-
         [TestMethod()]
         public void TestWrite2() {
             RoutedLogWriter logWriter = new RoutedLogWriter();
@@ -175,6 +174,41 @@ namespace Diagnostic.UnitTests {
                 Assert.AreEqual(2, e.Count);
                 Assert.AreEqual("MockCategoryOne", e[0].Categories.First());
                 Assert.AreEqual("B", e[1].Categories.First());
+            }
+        }
+
+        [TestMethod()]
+        public void TestWrite3() {
+            RoutedLogWriter logWriter = new RoutedLogWriter();
+            var filters = new Configuration.FilterElementCollection() {
+                    new Configuration.FilterElement() {
+                        Categories = new System.Configuration.CommaDelimitedStringCollection() { "A" },
+                        TypeName = "Diagnostic.UnitTests.RouterLogWriterMock2, Diagnostic.UnitTests"
+                    },
+                    new Configuration.FilterElement() {
+                        Categories = new System.Configuration.CommaDelimitedStringCollection() { "A" },
+                        TypeName = "Diagnostic.UnitTests.RouterLogWriterMock1, Diagnostic.UnitTests"
+                    },
+                };
+
+            logWriter.SetFilters(filters);
+
+            var properteis = new Dictionary<string, object>() {
+                { "P1", "V1" }
+            };
+
+            logWriter.Write("bar1", new string[] { "A" }, priority, eventId, severity, title, properteis, null, activityId, null);
+
+            {
+                var e = RouterLogWriterMock2.Entries;
+                Assert.AreEqual(1, e.Count);
+                Assert.AreEqual("V2", e[0].ExtendedProperties["P1"]);
+            }
+
+            {
+                var e = RouterLogWriterMock1.Entries;
+                Assert.AreEqual(1, e.Count);
+                Assert.AreEqual("V1", e[0].ExtendedProperties["P1"]);
             }
         }
     }
@@ -266,6 +300,10 @@ namespace Diagnostic.UnitTests {
             log.RelatedActivityId = relatedActivityId;
 
             entries.Add(log);
+
+            if (properties != null) {
+                properties["P1"] = "V2"; // for test;
+            }
         }
 
         public static IList<LogEntry> Entries => entries;

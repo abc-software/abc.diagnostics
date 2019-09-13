@@ -1,6 +1,6 @@
 ﻿// ----------------------------------------------------------------------------
 // <copyright file="RoutedLogWriter.cs" company="ABC Software Ltd">
-//    Copyright © 2018 ABC Software Ltd. All rights reserved.
+//    Copyright © 2019 ABC Software Ltd. All rights reserved.
 //
 //    This library is free software; you can redistribute it and/or.
 //    modify it under the terms of the GNU Lesser General Public
@@ -175,7 +175,7 @@ namespace Abc.Diagnostics {
             }
 
             foreach (var writer in writers) {
-                writer.Write(message, new string[] { category }, priority, eventId, severity, title, properties, exception, activityId, relatedActivityId);
+                writer.Write(message, new string[] { category }, priority, eventId, severity, title, properties != null ? new Dictionary<string, object>(properties) : null, exception, activityId, relatedActivityId);
             }
         }
 
