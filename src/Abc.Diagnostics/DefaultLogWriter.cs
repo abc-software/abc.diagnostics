@@ -267,7 +267,11 @@ namespace Abc.Diagnostics {
         }
 
         private void Write(string message, string category, int priority, int eventId, TraceEventType severity, string title, IDictionary<string, object> properties, Exception exception, Guid? relatedActivityId) {
+#if NETSTANDARD1_x
             TraceSource ts = new TraceSource(category);
+#else
+            TraceSource ts = new DiagnosticTraceSource(category);
+#endif
             if (category != this.defaultCategory && !HasTraceListeners(ts)) {
                 ts = new TraceSource(SR.TraceAsTraceSource);
             }

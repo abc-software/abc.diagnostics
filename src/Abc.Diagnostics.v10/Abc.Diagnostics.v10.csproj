@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net20;net35</TargetFrameworks>
     <RootNamespace>Diagnostic</RootNamespace>
     <PackageId>Abc.Diagnostics</PackageId>
-    <Version>1.0.18</Version>
+    <Version>1.0.19</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.16</FileVersion>
+    <FileVersion>1.0.0.19</FileVersion>
     <Authors>ABC software</Authors>
     <Product>Abc.Diagnostics</Product>
     <Copyright>Copyright © ABC software 2008-2019</Copyright>
@@ -31,6 +31,7 @@
     <Compile Include="..\Abc.Diagnostics\Configuration\LogWriterFactory.cs" Link="Configuration\LogWriterFactory.cs" />
     <Compile Include="..\Abc.Diagnostics\DefaultLogWriter.cs" Link="DefaultLogWriter.cs" />
     <Compile Include="..\Abc.Diagnostics\DiagnosticTools.cs" Link="DiagnosticTools.cs" />
+    <Compile Include="..\Abc.Diagnostics\DiagnosticTraceSource.cs" Link="DiagnosticTraceSource.cs" />
     <Compile Include="..\Abc.Diagnostics\EntrLib31LogWriter.cs" Link="EntrLib31LogWriter.cs" />
     <Compile Include="..\Abc.Diagnostics\EntrLib40LogWriter.cs" Link="EntrLib40LogWriter.cs" />
     <Compile Include="..\Abc.Diagnostics\EntrLib41LogWriter.cs" Link="EntrLib41LogWriter.cs" />

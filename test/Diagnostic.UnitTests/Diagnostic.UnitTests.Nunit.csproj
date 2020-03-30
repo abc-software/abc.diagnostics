@@ -120,6 +120,7 @@
     <Compile Include="AbcDiagnosticsProxyTraceLisenerFixture.cs" />
     <Compile Include="ConfigurationFixture.cs" />
     <Compile Include="DefaultLogWriterFixture.cs" />
+    <Compile Include="DiagnosticTraceSourceFixture.cs" />
     <Compile Include="RoutedLogWriterFixture.cs" />
     <Compile Include="TestLogWriterCustomFactory.cs" />
     <Compile Include="LogActivityFixture.cs" />

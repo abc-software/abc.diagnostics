@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70DC966B-5903-4772-B76A-F6AFFEE1E018}"
 	ProjectSection(SolutionItems) = preProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Diagnostics", "src\Abc.Diagnostics\Abc.Diagnostics.csproj", "{88D0DA70-19D8-42E2-BB2A-F3F40C40B830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abc.Diagnostics.v10", "src\Abc.Diagnostics.v10\Abc.Diagnostics.v10.csproj", "{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abc.Diagnostics.v10", "src\Abc.Diagnostics.v10\Abc.Diagnostics.v10.csproj", "{A1FC5F19-07D3-4C5B-9667-3B85CD98F6D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

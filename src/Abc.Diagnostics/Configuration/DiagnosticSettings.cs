@@ -81,6 +81,12 @@ namespace Abc.Diagnostics.Configuration {
             set { base[this.propInitData] = value; }
         }
 
+        /// <summary>
+        /// Gets the filters.
+        /// </summary>
+        /// <value>
+        /// The filters.
+        /// </value>
         [ConfigurationProperty("filters", IsDefaultCollection = false)]
         public FilterElementCollection Filters {
             get { return (FilterElementCollection)base[this.propFilters]; }
