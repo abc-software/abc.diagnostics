@@ -4,12 +4,12 @@
     <TargetFrameworks>net20;net35</TargetFrameworks>
     <RootNamespace>Diagnostic</RootNamespace>
     <PackageId>Abc.Diagnostics</PackageId>
-    <Version>1.0.19</Version>
+    <Version>1.0.20</Version>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.19</FileVersion>
+    <FileVersion>1.0.0.20</FileVersion>
     <Authors>ABC software</Authors>
     <Product>Abc.Diagnostics</Product>
-    <Copyright>Copyright © ABC software 2008-2019</Copyright>
+    <Copyright>Copyright © ABC software 2008-2022</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyName>Diagnostic</AssemblyName>
     <SignAssembly>true</SignAssembly>

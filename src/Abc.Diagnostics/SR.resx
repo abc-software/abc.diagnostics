@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActivityBoundary" xml:space="preserve">
     <value>Activity boundary.</value>
@@ -175,15 +175,15 @@
     <value>AppDomain unloading.</value>
   </data>
   <data name="TraceEndMessage" xml:space="preserve">
-    <value>End Trace: Activity '{0}' in method '{1}' at {2} ticks (elapsed time: {3} seconds)</value>
-    <comment>Parameters: 0 - activity (string), 1 - method (string), 2 - ticks (long)</comment>
+    <value>End Trace: Method '{0}' at {1} ticks (elapsed time: {2} seconds)</value>
+    <comment>Parameters: 0 - method (string), 1 - ticks (long), 3- seconds (double)</comment>
   </data>
   <data name="TraceHandledException" xml:space="preserve">
     <value>Handling an exception.</value>
   </data>
   <data name="TraceStartMessage" xml:space="preserve">
-    <value>Start Trace: Activity '{0}' in method '{1}' at {2} ticks</value>
-    <comment>Parameters: 0 - activity (string), 1 - method (string), 2 - ticks (long)</comment>
+    <value>Start Trace: Method '{0}' at {1} ticks</value>
+    <comment>Parameters: 0 - method (string), 1 - ticks (long)</comment>
   </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>Unhandled exception.</value>

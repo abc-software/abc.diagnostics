@@ -234,7 +234,7 @@ namespace Abc.Diagnostics {
 		}
 
 		/// <summary>
-		/// Looks up a localized string similar to End Trace: Activity &apos;{0}&apos; in method &apos;{1}&apos; at {2} ticks (elapsed time: {3} seconds).
+		/// Looks up a localized string similar to End Trace: Method &apos;{0}&apos; at {1} ticks (elapsed time: {2} seconds).
 		/// </summary>
 		internal static string TraceEndMessage {
 			get {
@@ -252,7 +252,7 @@ namespace Abc.Diagnostics {
 		}
 
 		/// <summary>
-		/// Looks up a localized string similar to Start Trace: Activity &apos;{0}&apos; in method &apos;{1}&apos; at {2} ticks.
+		/// Looks up a localized string similar to Start Trace: Method &apos;{0}&apos; at {1} ticks.
 		/// </summary>
 		internal static string TraceStartMessage {
 			get {

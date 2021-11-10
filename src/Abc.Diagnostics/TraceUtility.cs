@@ -1,6 +1,6 @@
 ﻿// ----------------------------------------------------------------------------
 // <copyright file="TraceUtility.cs" company="ABC Software Ltd">
-//    Copyright © 2017 ABC Software Ltd. All rights reserved.
+//    Copyright © 2022 ABC Software Ltd. All rights reserved.
 //
 //    This library is free software; you can redistribute it and/or.
 //    modify it under the terms of the GNU Lesser General Public
@@ -31,7 +31,7 @@ namespace Abc.Diagnostics {
     using System.Security.Permissions;
 
     /// <summary>
-    /// Represents a performance tracing class to log method entry/exit and duration.    
+    /// Represents a performance tracing class to log method entry/exit and duration.
     /// </summary>
     public class TraceUtility : IDisposable {
         private Stopwatch stopwatch;
@@ -209,9 +209,9 @@ namespace Abc.Diagnostics {
 
                 long tracingStartTicks = Stopwatch.GetTimestamp();
                 string methodName = this.GetExecutingMethodName();
-                Guid activityId = TraceUtility.GetActivityId(); 
+                Guid activityId = TraceUtility.GetActivityId();
                 string message = string.Format(
-                    SR.Culture, SR.TraceStartMessage, activityId, methodName, tracingStartTicks);
+                    SR.Culture, SR.TraceStartMessage, methodName, tracingStartTicks);
 
                 this.WriteTraceMessage(message, TraceEventType.Start, activityId);
             }
@@ -223,9 +223,9 @@ namespace Abc.Diagnostics {
                 decimal secondsElapsed = TraceUtility.GetSecondsElapsed(this.stopwatch.ElapsedMilliseconds);
 
                 string methodName = this.GetExecutingMethodName();
-                Guid activityId = GetActivityId(); 
+                Guid activityId = GetActivityId();
                 string message = string.Format(
-                    SR.Culture, SR.TraceEndMessage, activityId, methodName, tracingEndTicks, secondsElapsed);
+                    SR.Culture, SR.TraceEndMessage, methodName, tracingEndTicks, secondsElapsed);
 
                 this.WriteTraceMessage(message, TraceEventType.Stop, activityId);
             }

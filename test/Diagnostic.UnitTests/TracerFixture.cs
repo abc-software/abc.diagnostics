@@ -221,7 +221,7 @@ namespace Diagnostic.UnitTests {
         void AssertMessageIsValidStartMessage(string message) {
             Assert.IsNotNull(message);
 
-            string format = "Start Trace: Activity '{0}' in method '{1}' at {2} ticks";
+            string format = "Start Trace: Method '{0}' at {1} ticks";
             string pattern = ConvertFormatToRegex(format);
 
             Regex re = new Regex(pattern);
@@ -238,7 +238,7 @@ namespace Diagnostic.UnitTests {
         void AssertMessageIsValidEndMessage(string message) {
             Assert.IsNotNull(message);
 
-            string format = "End Trace: Activity '{0}' in method '{1}' at {2} ticks (elapsed time: {3} seconds)";
+            string format = "End Trace: Method '{0}' at {1} ticks (elapsed time: {2} seconds)";
             string pattern = ConvertFormatToRegex(format);
 
             Regex re = new Regex(pattern);

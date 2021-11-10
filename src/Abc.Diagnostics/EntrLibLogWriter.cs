@@ -106,7 +106,7 @@ namespace Abc.Diagnostics {
         /// <example>The following example demonstrates use of the Write method with
         /// a full set of parameters.
         /// <code></code></example>
-        public void Write(string message, ICollection<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title, IDictionary<string, object> properties, Exception exception, Guid activityId, Guid? relatedActivityId) {
+        public virtual void Write(string message, ICollection<string> categories, int priority, int eventId, System.Diagnostics.TraceEventType severity, string title, IDictionary<string, object> properties, Exception exception, Guid activityId, Guid? relatedActivityId) {
             if (this.logWriter != null) {
                 // Log to flat files do not support
                 if (exception != null && this.exceptionAsDisctionary) {
@@ -129,8 +129,8 @@ namespace Abc.Diagnostics {
 
                 ////
                 //// Microsoft.Practices.EnterpriseLibrary.Logging.XmlLogEntry log = new Microsoft.Practices.EnterpriseLibrary.Logging.XmlLogEntry();
-                //// log.Message = message;
-                //// log.Categories = categories;
+                //// log.Message = message ?? string.Empty;
+                //// log.Categories = categories ?? new string[0];
                 //// log.Priority = priority;
                 //// log.EventId = eventId;
                 //// log.Severity = severity;
@@ -142,8 +142,8 @@ namespace Abc.Diagnostics {
                 ////
                 Type logEntryType = this.loggingAssembly.GetType("Microsoft.Practices.EnterpriseLibrary.Logging.XmlLogEntry");
                 object logEntry = Activator.CreateInstance(logEntryType);
-                logEntryType.GetProperty("Message").SetValue(logEntry, message, new object[0]);
-                logEntryType.GetProperty("Categories").SetValue(logEntry, categories, new object[0]);
+                logEntryType.GetProperty("Message").SetValue(logEntry, message ?? string.Empty, new object[0]);
+                logEntryType.GetProperty("Categories").SetValue(logEntry, categories ?? new string[0], new object[0]);
                 logEntryType.GetProperty("Priority").SetValue(logEntry, priority, new object[0]);
                 logEntryType.GetProperty("EventId").SetValue(logEntry, eventId, new object[0]);
                 logEntryType.GetProperty("Severity").SetValue(logEntry, severity, new object[0]);

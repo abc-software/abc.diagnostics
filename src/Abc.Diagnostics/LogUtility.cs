@@ -1,6 +1,6 @@
 ﻿// ----------------------------------------------------------------------------
 // <copyright file="LogUtility.cs" company="ABC Software Ltd">
-//    Copyright © 2015 ABC Software Ltd. All rights reserved.
+//    Copyright © 2022 ABC Software Ltd. All rights reserved.
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Lesser General Public
@@ -458,7 +458,7 @@ namespace Abc.Diagnostics {
         private void ShutdownTracing() {
             if (!this.calledShutdown) {
                 try {
-                    this.Write(SR.TraceCodeAppDomainUnload, null, DefaultPriority, DefaultEventId, TraceEventType.Information);
+                    this.Write(SR.TraceCodeAppDomainUnload, LogUtility.EmptyCategoriesList, DefaultPriority, DefaultEventId, TraceEventType.Information, null);
 
                     this.calledShutdown = true;
                     LogUtility.Writer.Flush();

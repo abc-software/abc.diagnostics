@@ -1,6 +1,6 @@
 ﻿// ----------------------------------------------------------------------------
 // <copyright file="LogUtility.cs" company="ABC Software Ltd">
-//    Copyright © 2015 ABC Software Ltd. All rights reserved.
+//    Copyright © 2022 ABC Software Ltd. All rights reserved.
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Lesser General Public
@@ -32,6 +32,14 @@ namespace Abc.Diagnostics {
         private const TraceEventType DefaultSeverity = TraceEventType.Verbose;
         private const TraceEventType DefaultExceptionSeverity = TraceEventType.Error;
 
+        private static ICollection<string> BuildCategoriesCollection(string category) {
+            if (string.IsNullOrEmpty(category)) {
+                return EmptyCategoriesList;
+            }
+
+            return new string[] { category };
+        }
+
         #region Write
         /// <overloads>
         /// Write a new log entry to the default category.
@@ -53,7 +61,7 @@ namespace Abc.Diagnostics {
         /// <param name="message">Message body to log.</param>
         /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
         public void Write(string message, string category) {
-            this.WriteCore(message, new string[] { category }, DefaultPriority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), DefaultPriority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -63,7 +71,7 @@ namespace Abc.Diagnostics {
         /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
         /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
         public void Write(string message, string category, int priority) {
-            this.WriteCore(message, new string[] { category }, priority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), priority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -74,7 +82,7 @@ namespace Abc.Diagnostics {
         /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
         /// <param name="eventId">Event number or identifier.</param>
         public void Write(string message, string category, int priority, int eventId) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, DefaultSeverity, null, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), priority, eventId, DefaultSeverity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -86,7 +94,7 @@ namespace Abc.Diagnostics {
         /// <param name="eventId">Event number or identifier.</param>
         /// <param name="severity">Log entry severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
         public void Write(string message, string category, int priority, int eventId, TraceEventType severity) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), priority, eventId, severity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -99,7 +107,7 @@ namespace Abc.Diagnostics {
         /// <param name="severity">Log entry severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
         /// <param name="activityId">The qualified name of activity.</param>
         public void Write(string message, string category, int priority, int eventId, TraceEventType severity, Guid activityId) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, null, activityId);
+            this.WriteCore(message, BuildCategoriesCollection(category), priority, eventId, severity, null, activityId);
         }
         #endregion
 
@@ -121,7 +129,7 @@ namespace Abc.Diagnostics {
         /// <param name="category">Category name used to route the log entry to a one or more trace listeners.</param>
         /// <param name="properties">Dictionary of key/value pairs to log.</param>
         public void Write(string message, string category, IDictionary<string, object> properties) {
-            this.WriteCore(message, new string[] { category }, DefaultPriority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), DefaultPriority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
         }
 
         /// <summary>
@@ -133,7 +141,7 @@ namespace Abc.Diagnostics {
         /// <param name="priority">Only messages must be above the minimum priority are processed.</param>
         /// <param name="properties">Dictionary of key/value pairs to log.</param>
         public void Write(string message, string category, int priority, IDictionary<string, object> properties) {
-            this.WriteCore(message, new string[] { category }, priority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), priority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
         }
 
         /// <summary>
@@ -150,7 +158,7 @@ namespace Abc.Diagnostics {
         /// <param name="severity">Log message severity as a <see cref="TraceEventType"/> enumeration. (Unspecified, Information, Warning or Error).</param>
         /// <param name="properties">Dictionary of key/value pairs to log.</param>
         public void Write(string message, string category, int priority, int eventId, TraceEventType severity, IDictionary<string, object> properties) {
-            this.WriteCore(message, new string[] { category }, priority, eventId, severity, properties, Guid.Empty);
+            this.WriteCore(message, BuildCategoriesCollection(category), priority, eventId, severity, properties, Guid.Empty);
         }
 
         /// <summary>

@@ -68,7 +68,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, DefaultPriority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), DefaultPriority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, priority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), priority, DefaultEventId, DefaultSeverity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, priority, eventId, DefaultSeverity, null, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), priority, eventId, DefaultSeverity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, priority, eventId, severity, null, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), priority, eventId, severity, null, Guid.Empty);
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, priority, eventId, severity, null, activityId);
+            logUtility.Write(message, BuildCategoriesCollection(category), priority, eventId, severity, null, activityId);
         }
         #endregion
 
@@ -167,7 +167,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, DefaultPriority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), DefaultPriority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, priority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), priority, DefaultEventId, DefaultSeverity, properties, Guid.Empty);
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace Abc.Diagnostics {
                 throw new ArgumentNullException("logUtility");
             }
 
-            logUtility.Write(message, new string[] { category }, priority, eventId, severity, properties, Guid.Empty);
+            logUtility.Write(message, BuildCategoriesCollection(category), priority, eventId, severity, properties, Guid.Empty);
         }
 
         /// <summary>
@@ -337,5 +337,13 @@ namespace Abc.Diagnostics {
         }
 
         #endregion
+
+        private static ICollection<string> BuildCategoriesCollection(string category) {
+            if (string.IsNullOrEmpty(category)) {
+                return EmptyCategoriesList;
+            }
+
+            return new string[] { category };
+        }
     }
 }
