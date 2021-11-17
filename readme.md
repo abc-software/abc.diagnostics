@@ -18,16 +18,19 @@ Configure sections in application configuration file
 </configSections>
 ```
 
-### Nuget package changes
+### Supported Platforms
 
-Nuget package *Abc.Diagnostics.dll* splitted to two packages
-    *Abc.Diagnostics V1.0* for net20, net35 and *Abc.Diagnostics V1.2* for net4.5, netstandart16, netstandart2.
+#### V1.2.x
+.NET 4.5, .NET Standard 1.6, .NET Standard 2.0
+
+#### V1.0.x
+.NET 2.0 .NET 3.5
 
 #### Retarget .NET20, .NET3.0, .NET3.5, .NET4.0 project to Abc.Diagnostics V1.0
 
 - Type the following commands into the Package Manager Console:
 
-  - Unnstall-Package Abc.Diagnostics.dll
+  - Uninstall-Package Abc.Diagnostics.dll
 
   - Install-Package Abc.Diagnostics -Version 1.0.11
 
@@ -35,7 +38,7 @@ Nuget package *Abc.Diagnostics.dll* splitted to two packages
 
 - Type the following commands into the Package Manager Console:
 
-  - Unnstall-Package Abc.Diagnostics.dll
+  - Uninstall-Package Abc.Diagnostics.dll
 
   - Install-Package Abc.Diagnostics
 
@@ -101,7 +104,7 @@ Use log writer according table below
 <diagnosticConfiguration type="Abc.Diagnostics.EntrLib40LogWriter, Abc.Diagnostics"/>
 ```
 
-Configure microsoft Enterprise Library logging section. 
+Configure Microsoft Enterprise Library logging section. 
 Use _Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners.XmlTraceListener_ to write to a file
 
 ```xml
